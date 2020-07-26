@@ -1,3 +1,10 @@
+'*****************************************************
+'*      Projeto para Cria um Compilador simples
+'*      Na Linguagem freeBasic
+'*      Versão 1.000.00 Data 26-07-2020
+'*      Autor : Cassio Butrico 
+'*      ssio_butrico@hotmail.com
+'*****************************************************
 
 #include  "CabFunc.bi"
 
