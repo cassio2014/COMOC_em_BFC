@@ -1,21 +1,21 @@
 # Projeto: COMOC.EXE
 
- ### projeto de um compilador em FreeBasic ###
+ ## projeto de um compilador em FreeBasic ##
 
- Este projeto est√° licenciado sob uma
- Licen√ßa Creative Commons
- Atribui√ß√£o-N√£oComercial 4.0 Internacional.
- Para ver uma c√≥pia desta licen√ßa, visite
+ Este projeto est· licenciado sob uma
+ LicenÁa Creative Commons
+ AtribuiÁ„o-N„oComercial 4.0 Internacional.
+ Para ver uma cÛpia desta licenÁa, visite
 
  www.creativecommons.org/licenses/by-nc/4.0
 
- licen√ßa: [creative commons 4.0](http://creativecommons.org/licenses/by-nc/4.0/)
+ licenÁa: [creative commons 4.0](http://creativecommons.org/licenses/by-nc/4.0/)
 
  Autor: Cassio Butrico
 
  email: cassio_butrico@hotmail.com
 
- vers√£o: 1.000.0
+ vers„o: 1.000.0
 
  Data: 25 de junho de 2020.
  
@@ -23,9 +23,9 @@
  
 FreeBasic - Projeto de Um Compilador - WINDOWS.
 
-### Para que √© este projeto? ###
+### Para que È este projeto? ###
 
 * Contruir um compilador.
 * Totalmente escrito em linguagem FreeBasic.
-* vers√£o: 1.000.0
+* vers„o: 1.000.0
 
