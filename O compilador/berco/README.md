@@ -1,6 +1,6 @@
-# Comp_em_BFC 
- ### projeto de um compilador em FreeBasic ###
+# Projeto: COMOC.EXE
 
+ ## projeto de um compilador em FreeBasic ##
 
  Este projeto está licenciado sob uma
  Licença Creative Commons
@@ -19,11 +19,11 @@
 
  Data: 25 de junho de 2020.
  
- Atualizado: 25 de junho de 2020.
+ Atualizado: 28 de junho de 2020.
  
 FreeBasic - Projeto de Um Compilador - WINDOWS.
 
-### Para que é este projeto? ###
+## Para que é este projeto? ##
 
 * Contruir um compilador.
 * Totalmente escrito em linguagem FreeBasic.
