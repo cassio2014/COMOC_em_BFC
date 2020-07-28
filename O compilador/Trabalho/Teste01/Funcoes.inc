@@ -3,6 +3,13 @@
 '*    arquivo com minhas funções para o compilador *
 '***************************************************
 
+/' 
+====================================================================================
+ - Função  ===>  NomePrograma() 
+
+   Le o caminho com o nome do programa
+   e separa o nome e retira a extenção.exe. 
+==================================================================================='/
 public function NomePrograma(Nome as string) as string
     
     dim  as string programa,clido
@@ -42,3 +49,4 @@ public function NomePrograma(Nome as string) as string
     return programa
     
 end function
+
