@@ -1,19 +1,15 @@
-
-'***************************************************
-'*    arquivo com minhas fun็๕es para o compilador *
-'***************************************************
 /'
-ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-บ  a  บ
-ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
-
-/' 
-====================================================================================
- - Fun็ใo  ===>  NomePrograma() 
-
-   Le o caminho com o nome do programa
-   e separa o nome e retira a exten็ใo.exe. 
-==================================================================================='/
+ษอออออออออออออออออออออออออออออออออออออออออออออออออออออป
+บ  Arquivo: CabFuc.bi , Funoes para o compilador     บ
+ศอออออออออออออออออออออออออออออออออออออออออออออออออออออผ
+ษอออออออออออออออออออออออออออออออออออออออออออออออออออออป
+บ                                                     บ
+บ - Ffunao  ===>    NomePrograma()                   บ
+บ                                                     บ
+บ    Le o caminho com o nome do programa              บ
+บ    e separa o nome e retira a exten็ใo.exe.         บ
+บ                                                     บ
+ศอออออออออออออออออออออออออออออออออออออออออออออออออออออผ '/
 public function NomePrograma(Nome as string) as string
     
     dim  as string programa,clido
@@ -53,4 +49,5 @@ public function NomePrograma(Nome as string) as string
     return programa
     
 end function
+
 
