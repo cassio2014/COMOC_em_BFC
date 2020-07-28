@@ -1,7 +1,9 @@
-/' 
+/'  caracteres em OEM
 ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
 บ                                                          บ
-บ  Projeto para Cria um Compilador simples                 บ
+บ  Projeto:comoc.exe                                       บ
+บ                                                          บ
+บ  Compilador simples                                      บ
 บ  Na Linguagem freeBasic                                  บ
 บ                                                          บ
 บ     versao         : 1.000.00                            บ
@@ -11,6 +13,8 @@
 บ     e-mail         : cassio_butrico@hotmail.com          บ
 บ                                                          บ
 ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
+
+
 
 #include  "CabFunc.bi"
 
