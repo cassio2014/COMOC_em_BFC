@@ -4,7 +4,7 @@
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออผ
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออป
 บ                                                     บ
-บ - Ffunao  ===>    NomePrograma()                   บ
+บ - Funao ===> NomePrograma() AS string              บ
 บ                                                     บ
 บ    Le o caminho com o nome do programa              บ
 บ    e separa o nome e retira a exten็ใo.exe.         บ
@@ -33,7 +33,7 @@ public function NomePrograma(Nome as string) as string
                cont      = len(programa)
            end if   
            if clido      = "\" then
-              achou      = sim ' sai do loop
+              achou      = sim ' ==> sai do loop
               programa   = mid(programa,cont + 1)
            end if
 
@@ -41,7 +41,7 @@ public function NomePrograma(Nome as string) as string
         cont -= 1
               
         if cont <= 0 then 
-            achou = sim ' sai dso loop
+            achou = sim ' ==> sai dso loop
         end if
         
     loop until achou = sim
@@ -49,5 +49,12 @@ public function NomePrograma(Nome as string) as string
     return programa
     
 end function
-
-
+/'
+ษอออออออออออออออออออออออออออออออออออออออออออออออออออออป
+บ                                                     บ
+บ - Funao ===> Iniciar(...)                          บ
+บ                                                     บ
+บ   Aqui  o inicio o programa                        บ
+บ   equivalente ao Main() em C                        บ
+บ                                                     บ
+ศอออออออออออออออออออออออออออออออออออออออออออออออออออออผ '/

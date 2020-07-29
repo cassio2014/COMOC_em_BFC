@@ -5,7 +5,7 @@ print
         mov  EAX, 7
 		push EAX 
 		mov  EAX, 2 
-		pop  EBX 
+		pop  EBX   
 		imul EBX 
 		push EAX 
 		mov  EAX, 3 
@@ -16,7 +16,7 @@ print
 		pop  EBX 
 		sub  EAX, EBX 
 		neg  EAX 
-		mov  [A], EAX ;
+		mov  [A], EAX
     End Asm
 print "A = 7 * 2 - (3 + 1) = ";A
 print
