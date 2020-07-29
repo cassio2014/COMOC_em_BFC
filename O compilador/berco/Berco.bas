@@ -1,10 +1,20 @@
-'*****************************************************
-'*      Projeto para Cria um Compilador simples
-'*      Na Linguagem freeBasic
-'*      Versใo 1.000.00 Data 26-07-2020
-'*      Autor : Cassio Butrico 
-'*      ssio_butrico@hotmail.com
-'*****************************************************
+/'  caracteres em OEM
+ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
+บ                                                          บ
+บ  Projeto:comoc.exe                                       บ
+บ                                                          บ
+บ  Compilador simples                                      บ
+บ  Na Linguagem freeBasic                                  บ
+บ                                                          บ
+บ     versao         : 1.000.00                            บ
+บ     Data Inicio    : 26-07-2020                          บ
+บ     Data Alteraao : 28-07-2020                          บ
+บ     Autor          : Cassio Butrico                      บ
+บ     e-mail         : cassio_butrico@hotmail.com          บ
+บ                                                          บ
+ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
+
+
 
 #include  "CabFunc.bi"
 
