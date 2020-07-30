@@ -2,12 +2,8 @@
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออป
 บ Arquivo: CadFiv.bi   cabealho de funoes         บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
-declare _
-  function NomePrograma( Nome as string) as string
-
-declare _
-  function LinhaDeComando(NArgu as integer)as string
-
+#include "funcoes.inc"
+#include "Subrotinas.inc"
 /'
 ษอออออออออออออออออออออออออป
 บ   Variaveis do Systema  บ

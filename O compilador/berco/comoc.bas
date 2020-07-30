@@ -7,7 +7,7 @@
 º  Compilador simples                                      º
 º  Na Linguagem freeBasic                                  º
 º                                                          º
-º     versao         : 1.000.00                            º
+º     versao         : 1.000.1                             º
 º     Data Inicio    : 26-07-2020                          º
 º     Data Altera‡ao : 30-07-2020                          º
 º     Autor          : Cassio Butrico                      º

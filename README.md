@@ -15,11 +15,11 @@
 
  email: cassio_butrico@hotmail.com
 
- versão: 1.000.0
+ versão: 1.000.1
 
  Data: 25 de junho de 2020.
  
- Atualizado: 28 de junho de 2020.
+ Atualizado: 30 de junho de 2020.
  
 FreeBasic - Projeto de Um Compilador - WINDOWS.
 
@@ -27,5 +27,5 @@ FreeBasic - Projeto de Um Compilador - WINDOWS.
 
 * Contruir um compilador "COMOC.EXE".
 * Totalmente escrito em linguagem FreeBasic.
-* versão: 1.000.0
+* versão: 1.000.1
 
