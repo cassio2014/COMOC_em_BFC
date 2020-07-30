@@ -1,15 +1,27 @@
 /'
-ษอออออออออออออออออออออออออออออออออออออออออออออออออออออป
-บ Arquivo: Funcao.inc Declaraao das funoes          บ
-ศอออออออออออออออออออออออออออออออออออออออออออออออออออออผ
-ษอออออออออออออออออออออออออออออออออออออออออออออออออออออป
-บ                                                     บ
-บ - Declare ===> NomePrograma() AS string             บ
-บ                                                     บ
-บ    Le o caminho com o nome do programa              บ
-บ    e separa o nome e retira a exten็ใo.exe.         บ
-บ                                                     บ
-ศอออออออออออออออออออออออออออออออออออออออออออออออออออออผ '/
+ษอออออออออออออออออออออออออออออออออออออออออออออออออออป
+บ Arquivo: CadFiv.bi   cabealho de funoes         บ
+ศอออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 declare _
-  function NomePrograma(Nome as string) as string
+  function NomePrograma( Nome as string) as string
+
+declare _
+  function LinhaDeComando(NArgu as integer)as string
+
+/'
+ษอออออออออออออออออออออออออป
+บ   Variaveis do Systema  บ
+ศอออออออออออออออออออออออออผ'/
+dim _Compilador as string = NomePrograma(command(0))
+/'
+ษออออออออออออออออออออออออออออออออออป
+บ Verifica se tem argumentos       บ
+ศออออออออออออออออออออออออออออออออออผ'/
+if __FB_ARGC__ > 1 then 
+ LinhaDeComando(__FB_ARGC__)
+end if
+
+
+
+
 
