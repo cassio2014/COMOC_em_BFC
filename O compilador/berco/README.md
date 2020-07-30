@@ -25,7 +25,7 @@ FreeBasic - Projeto de Um Compilador - WINDOWS.
 
 ## Para que é este projeto? ##
 
-* Contruir um compilador.
+* Contruir um compilador "COMOC.EXE".
 * Totalmente escrito em linguagem FreeBasic.
 * versão: 1.000.0
 

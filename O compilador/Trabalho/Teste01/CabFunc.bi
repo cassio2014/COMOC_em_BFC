@@ -12,9 +12,7 @@ declare _
 ษอออออออออออออออออออออออออป
 บ   Variaveis do Systema  บ
 ศอออออออออออออออออออออออออผ'/
-dim shared as string _
-         _Compilador,_
-         _LC
+dim shared as string _Compilador, _LC
 
 _Compilador= NomePrograma(command(0))
 /'
