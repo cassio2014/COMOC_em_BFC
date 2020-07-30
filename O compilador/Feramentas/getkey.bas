@@ -1,6 +1,9 @@
 Dim foo As long 
+cls
+locate 2,2 
+print "==> Difite <asc> para sair, ou uma tecla."
 Do
-      locate 2, 4
+      locate 4, 4
       foo = GetKey
       print  chr(foo)
       print
