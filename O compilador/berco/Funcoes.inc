@@ -95,8 +95,9 @@ public function LinhaDeComando(NArgu as integer) as string
             Case Else
                  cls
                  print
-                 print "Use:"
-                 print "      ";Programa;" -h"
+                 print "     - ";Programa;" ";command(-1)
+                 print "erro - Use:"
+                 print "     - ";Programa;" -h"
         End Select
    return LComando
 end function

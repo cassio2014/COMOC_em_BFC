@@ -17,7 +17,6 @@
 
 Function Main() as integer
     
-
    Print
    Print "Pressione qualquer tecla para continuar. . ..";
    return 0

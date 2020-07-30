@@ -5,16 +5,16 @@
 #include "funcoes.inc"
 #include "Subrotinas.inc"
 /'
-ษอออออออออออออออออออออออออป
-บ   Variaveis do Systema  บ
-ศอออออออออออออออออออออออออผ'/
+ษออออออออออออออออออออออออออออออออออออออออป
+บ   Variaveis do Systema                 บ
+ศออออออออออออออออออออออออออออออออออออออออผ'/
 dim shared as string _Compilador, _LC
 
 _Compilador= NomePrograma(command(0))
 /'
-ษออออออออออออออออออออออออออออออออออป
-บ Verifica se tem argumentos       บ
-ศออออออออออออออออออออออออออออออออออผ'/
+ษออออออออออออออออออออออออออออออออออออออออป
+บ Verifica se tem argumentos             บ
+ศออออออออออออออออออออออออออออออออออออออออผ'/
 if __FB_ARGC__ > 1 then 
  _LC = LinhaDeComando(__FB_ARGC__)
 end if
