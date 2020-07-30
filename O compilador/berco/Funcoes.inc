@@ -63,7 +63,7 @@ public function LinhaDeComando(NArgu as integer) as string
     dim  as integer n_arg, i
 
     Programa = NomePrograma(command(0))
-    Versao   = "V1.000.0"
+    Versao   = "V1.000.1"
     n_arg    = NArgu ' Numero de argumentos
     i        = n_arg
 
@@ -77,7 +77,7 @@ public function LinhaDeComando(NArgu as integer) as string
             Case "-h"
                 cls
                 print
-                print "   Programa ";Programa;" : ";Versao
+                print "   Programa ";Programa
                 print "   Copyright (C) 2020 , escrito por Cassio Butridco"
                 print
                 print "Use:"
@@ -85,7 +85,7 @@ public function LinhaDeComando(NArgu as integer) as string
                 print
                 print "Onde:"
                 print "<opcao>:"
-                print "-h            Mosta Help."
+                print "-h            Mosta esta tela."
                 print "-v            Mostra a Versao do Programa."
             Case "-v"
                 cls
