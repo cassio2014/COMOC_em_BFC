@@ -15,11 +15,12 @@
 บ                                                          บ
 ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 
+Function Main() as integer
+    
 
-
-Print
-Print "Pressione qualquer tecla para continuar. . ..";
-Sleep
-cls
+   Print
+   Print "Pressione qualquer tecla para continuar. . ..";
+   return 0
+end function
+main :Sleep:cls
 end 
-

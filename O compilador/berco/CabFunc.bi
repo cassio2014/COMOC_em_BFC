@@ -8,19 +8,19 @@ declare _
 declare _
   function LinhaDeComando(NArgu as integer)as string
 
-
-
 /'
 ษอออออออออออออออออออออออออป
 บ   Variaveis do Systema  บ
 ศอออออออออออออออออออออออออผ'/
-dim _Compilador as string = NomePrograma(command(0))
+dim shared as string _Compilador, _LC
+
+_Compilador= NomePrograma(command(0))
 /'
 ษออออออออออออออออออออออออออออออออออป
 บ Verifica se tem argumentos       บ
 ศออออออออออออออออออออออออออออออออออผ'/
 if __FB_ARGC__ > 1 then 
- LinhaDeComando(__FB_ARGC__)
+ _LC = LinhaDeComando(__FB_ARGC__)
 end if
 
 

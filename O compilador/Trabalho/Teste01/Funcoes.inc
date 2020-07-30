@@ -59,7 +59,7 @@ end function
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออผ '/
 public function LinhaDeComando(NArgu as integer) as string  
     
-    dim  as string  Programa, Versao
+    dim  as string  Programa, Versao, LComando
     dim  as integer n_arg, i
 
     Programa = NomePrograma(command(0))
@@ -67,11 +67,13 @@ public function LinhaDeComando(NArgu as integer) as string
     n_arg    = NArgu ' Numero de argumentos
     i        = n_arg
 
-     if N_arg >= 2 then 
-         i = 1
-     end if
+   if N_arg >= 2 then 
+           i = 1
+   end if
+   
+    LComando = command(i)
 
-        Select Case command(i)
+        Select Case LComando
             Case "-h"
                 cls
                 print
@@ -96,6 +98,6 @@ public function LinhaDeComando(NArgu as integer) as string
                  print "Use:"
                  print "      ";Programa;" -h"
         End Select
-   return Programa
+   return LComando
 end function
 
