@@ -18,7 +18,7 @@ print
 		neg  EAX 
 		mov  [A], EAX
     End Asm
-print "A = 7 * 2 - (3 + 1) = ";A
+print "===> 7 * 2 - (3 + 1) = ";A
 print
 print "Pressione qualquer tecla para continuar. . .";
 sleep
