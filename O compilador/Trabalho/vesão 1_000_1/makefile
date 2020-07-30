@@ -3,6 +3,8 @@ FLG1 =  -s console
 RES  =  comoc_res.res
 AC   =  comoc.bas
 EXE  =  comoc.exe
+RumH =  $(EXE) -h
+RumV =  $(EXE) -v
 
 todos:comoc
 	
@@ -11,8 +13,14 @@ comoc:
 
 run:
 	@echo.
-	@$(EXE) -h
+	@$(EXE) -c
+	
+h:
+	@$(RumH)
 
+v:
+	@$(RumV)
+	
 del:
-	@del *.exe 
+	@del $(EXE) 
 	
