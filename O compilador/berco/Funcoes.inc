@@ -4,7 +4,7 @@
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออผ
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออป
 บ                                                     บ
-บ - Ffunao  ===>    NomePrograma()                   บ
+บ - Ffunao  ===> NomePrograma()                      บ
 บ                                                     บ
 บ    Le o caminho com o nome do programa              บ
 บ    e separa o nome e retira a exten็ใo.exe.         บ
@@ -52,7 +52,7 @@ end function
 /'
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออป
 บ                                                     บ
-บ - Funao ===> LinhaDeComando(n as integer)          บ
+บ - Funao ===> LinhaDeComando(n as integer)as string บ
 บ                                                     บ
 บ   Esta funcao so  executada de tiver 1 ou          บ
 บ   + argumentos e Retorna O Nome do Programa         บ
@@ -101,4 +101,10 @@ public function LinhaDeComando(NArgu as integer) as string
         End Select
    return LComando
 end function
-
+/'
+ษอออออออออออออออออออออออออออออออออออออออออออออออออออออป
+บ                                                     บ
+บ - Funao ===> Main() as integer                     บ
+บ   Inicio do nosso programa                          บ
+ศอออออออออออออออออออออออออออออออออออออออออออออออออออออผ '/
+declare Function Main() as integer
