@@ -15,8 +15,26 @@
 บ                                                          บ
 ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 
-Function Main() as integer
+dim shared Olhar as integer 
+
+
+public sub nextChar
+
+ olhar = getkey
+ 
+end sub
+
+public sub init
+
+    nextChar
     
+end sub
+
+
+Function Main() as integer    
+    
+       init
+   
    return 0
 end function
 

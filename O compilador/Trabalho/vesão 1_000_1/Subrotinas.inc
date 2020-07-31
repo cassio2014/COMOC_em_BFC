@@ -8,7 +8,7 @@
 บ                     e verifica se deu algum erro    บ
 บ                                                     บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออผ '/
-public sub Fim()
+public sub Fim
     if main <> 0 then '<== main  a rotina primcipal 
         Print
         print "ops deu um erro.....: erro nง";main

@@ -15,5 +15,5 @@ Do
         Else
             Print "regular code: " & (foo And &hff)
         End If
-Loop Until foo = 27
+Loop Until foo = 27 ' 27 = esc
 

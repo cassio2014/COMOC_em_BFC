@@ -11,6 +11,7 @@
 dim shared as string _Compilador, _LC
 
 _Compilador= NomePrograma(command(0))
+_LC = " "
 /'
 ษออออออออออออออออออออออออออออออออออออออออป
 บ Verifica se tem argumentos             บ
