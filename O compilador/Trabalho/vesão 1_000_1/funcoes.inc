@@ -87,6 +87,9 @@ public function LinhaDeComando(NArgu as integer) as string
                 print "<opcao>:"
                 print "-h            Mosta esta tela."
                 print "-v            Mostra a Versao do Programa."
+                print "-r            Rodar e executar o programa."
+            Case "-r"
+                cls
             Case "-v"
                 cls
                 print
@@ -108,3 +111,32 @@ end function
 บ   Inicio do nosso programa                          บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออผ '/
 declare Function Main() as integer
+/'
+ษอออออออออออออออออออออออออออออออออออออออออออออออออออออป
+บ                                                     บ
+บ - Funao ===> PegaLetra() as string                 บ
+บ   le a letra digitada do teclado                    บ
+บ                                                     บ
+ศอออออออออออออออออออออออออออออออออออออออออออออออออออออผ '/
+public function PegaLetra() as string 
+    dim L1 as string 
+    dim L2 as string * 1
+    dim L3 as integer
+
+    while L3  <> 13
+        do
+           L2 = inkey
+        loop until L2 <> ""
+        print L2;
+        L1 = L1 + L2
+        L3 = asc(L2)
+    wend
+    if len(L1)>1 then
+        L2 = left(L1,2) 
+    end if
+    print
+    return L2
+end function
+
+
+

@@ -9,14 +9,19 @@
 บ                                                     บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออผ '/
 public sub Fim
-    if main <> 0 then '<== main  a rotina primcipal 
+    if _LC = "-r" then
+        dim errorlevel as integer
+        errorlevel = main '<== main  a rotina primcipal 
+        if errorlevel <> 0 then 
+            Print
+            print "- erro em Main() , erro nง ";errorlevel
+        end if
         Print
-        print "ops deu um erro.....: erro nง";main
+        Print "Pressione qualquer tecla para continuar. . ..";
+        Sleep
+        cls
     end if
-    Print
-    Print "Pressione qualquer tecla para continuar. . ..";
-    Sleep
-    cls
+    end
 end sub
 
 

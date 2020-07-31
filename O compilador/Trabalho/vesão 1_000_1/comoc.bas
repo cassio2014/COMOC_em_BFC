@@ -15,14 +15,12 @@
 บ                                                          บ
 ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 
-dim shared Olhar as integer 
+dim shared Olhar as string * 1 
 
+declare sub init
+declare sub nextChar
+declare sub erros
 
-public sub nextChar
-
- olhar = getkey
- 
-end sub
 
 public sub init
 
@@ -30,12 +28,18 @@ public sub init
     
 end sub
 
+public sub nextChar
+
+ olhar = PegaLetra ' = getchar em c 
+
+end sub
+
+
 
 Function Main() as integer    
+       
+    init()
     
-       init
-   
-   return 0
+    return 0
 end function
-
 Fim
