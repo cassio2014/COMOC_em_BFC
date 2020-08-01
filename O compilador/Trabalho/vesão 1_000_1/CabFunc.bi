@@ -5,26 +5,22 @@
 ษออออออออออออออออออออออออออออออออออออออออป
 บ Variaveis funoes e rotinas            บ
 ศออออออออออออออออออออออออออออออออออออออออผ'/
-' ===>  _LC_ Type para a Linha de Comando 
-type _LC_ 
-    Arg01 as string *2
-    arg02 as string
+' ===>  LCAG Argumentos para a Linha de Comando 
+type LCAG
+    AG01 as string * 2
+    AG02 as string
 end type
-/'
-===> LC contem :
-     LC.ARG01 = 2 Caracteres 
-     LC.ARG02 = <Arquivo>.coc
-'/
-dim shared as _LC_ LC
 
 
 '==> _Compilador = Nome do Programa
 dim shared as string _Compilador
+dim SHARED AS LCAG   _LC
+
 /'
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออป
 บ   Declaraoes estao aqui.                         บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
-declare Function Main() as integer
+declare Function Main as integer
 declare function NomePrograma(Nome as string) as string
 declare sub Pausa 
 declare sub Fim
@@ -39,4 +35,4 @@ declare sub Fim
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออป
 บ Inicializaao e atribuiao iniciais               บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
-_Compilador= NomePrograma(command(0))
+_Compilador = NomePrograma(command(0))
