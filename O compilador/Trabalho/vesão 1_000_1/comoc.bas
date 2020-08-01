@@ -1,4 +1,3 @@
-#include  "CabFunc.bi"
 /'  caracteres em OEM
 ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
 บ                                                          บ
@@ -14,6 +13,21 @@
 บ     e-mail         : cassio_butrico@hotmail.com          บ
 บ                                                          บ
 ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
+
+#include  "CabFunc.bi" 
+
+/'
+ษออออออออออออออออออออออออออออออออออออออออป
+บ Linha de Comando                       บ
+ศออออออออออออออออออออออออออออออออออออออออผ'/
+if __FB_ARGC__ >=1 then
+    '_LC =  LinhaDeComando(__FB_ARGC__)
+    pausa
+    end
+else
+    main
+end if
+
 
 dim shared Olhar as string * 1 
 
@@ -34,12 +48,11 @@ public sub nextChar
 
 end sub
 
-
-
 Function Main() as integer    
        
     init()
     
     return 0
 end function
+
 Fim
