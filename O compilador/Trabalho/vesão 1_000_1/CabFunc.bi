@@ -7,12 +7,11 @@
 ศออออออออออออออออออออออออออออออออออออออออผ'/
 ' ===>  LCAG Argumentos para a Linha de Comando 
 type LCAG
-    AG01 as string * 2
-    AG02 as string
+    AG01 as string * 2 '1๘ argumento  2 letras
+    AG02 as string     '2๘ argumentro string com o nome
 end type
 
-
-'==> _Compilador = Nome do Programa
+dim shared as string Versao
 dim shared as string _Compilador
 dim SHARED AS LCAG   _LC
 
@@ -36,3 +35,8 @@ declare sub Fim
 บ Inicializaao e atribuiao iniciais               บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 _Compilador = NomePrograma(command(0))
+Versao = "v1.000.1"
+
+
+
+

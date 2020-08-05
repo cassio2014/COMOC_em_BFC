@@ -34,9 +34,8 @@ end sub
 
 Function Main as integer    
     print
-    print "=> programa ";_Compilador;" -Versao: v1.000.1"
-    print "   Arquivo app.coc"
-    print "   Primeiro teste de letars ...."
+    print "=> programa ";_Compilador;" -Versao: ";Versao
+    print "   Primeiro teste...."
     init()
     return 0
 end function
