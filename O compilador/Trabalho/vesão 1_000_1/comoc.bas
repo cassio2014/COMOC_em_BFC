@@ -29,12 +29,12 @@ public sub init
 end sub
 
 public sub nextChar
-    olhar = PegaLetra ' = getchar em c 
+    olhar = PegaLetra 
 end sub
 
 Function Main as integer    
     print
-    print "=> programa ";_Compilador;" -Versao: ";Versao
+    print "=> programa ";_Compilador;" Versao: ";Versao
     print "   Primeiro teste...."
     init()
     return 0
