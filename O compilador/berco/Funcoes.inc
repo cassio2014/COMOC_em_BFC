@@ -1,4 +1,4 @@
-/'
+/'caracteres em OEM
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออป
 บ  Arquivo: Funoes.inc  Funoes para o compilador    บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออผ
@@ -47,64 +47,30 @@ public function NomePrograma(Nome as string) as string
     loop until achou = sim
 
     return programa
-    
 end function
 /'
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออป
 บ                                                     บ
-บ - Funao ===> LinhaDeComando(n as integer)as string บ
+บ - Funao ===> PegaLetra() as string                 บ
+บ   le a letra digitada do teclado                    บ
 บ                                                     บ
-บ   Esta funcao so  executada de tiver 1 ou          บ
-บ   + argumentos e Retorna O Nome do Programa         บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออผ '/
-public function LinhaDeComando(NArgu as integer) as string  
-    
-    dim  as string  Programa, Versao, LComando
-    dim  as integer n_arg, i
+public function PegaLetra() as string 
+    dim L1 as string 
+    dim L2 as string * 1
+    dim L3 as integer
 
-    Programa = NomePrograma(command(0))
-    Versao   = "V1.000.1"
-    n_arg    = NArgu ' Numero de argumentos
-    i        = n_arg
-
-   if N_arg >= 2 then 
-           i = 1
-   end if
-   
-    LComando = command(i)
-
-        Select Case LComando
-            Case "-h"
-                cls
-                print
-                print "   Programa ";Programa
-                print "   Copyright (C) 2020 , escrito por Cassio Butridco"
-                print
-                print "Use:"
-                print "      ";Programa;" [<opcao>...]"
-                print
-                print "Onde:"
-                print "<opcao>:"
-                print "-h            Mosta esta tela."
-                print "-v            Mostra a Versao do Programa."
-            Case "-v"
-                cls
-                print
-                print "   Programa ";Programa;" : ";Versao
-                print "   Copyright (C) 2020 , escrito por Cassio Butridco"
-            Case Else
-                 cls
-                 print
-                 print "     - ";Programa;" Versao: ";Versao
-                 Print
-                 print "     - Use:";Programa;" -h"
-        End Select
-   return LComando
+    while L3  <> 13
+        do
+           L2 = inkey
+        loop until L2 <> ""
+        print L2;
+        L1 = L1 + L2
+        L3 = asc(L2)
+    wend
+    if len(L1)>1 then
+        L2 = left(L1,2) 
+    end if
+    print
+    return L2
 end function
-/'
-ษอออออออออออออออออออออออออออออออออออออออออออออออออออออป
-บ                                                     บ
-บ - Funao ===> Main() as integer                     บ
-บ   Inicio do nosso programa                          บ
-ศอออออออออออออออออออออออออออออออออออออออออออออออออออออผ '/
-declare Function Main() as integer

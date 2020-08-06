@@ -1,4 +1,3 @@
-#include  "CabFunc.bi"
 /'  caracteres em OEM
 ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
 บ                                                          บ
@@ -14,10 +13,32 @@
 บ     e-mail         : cassio_butrico@hotmail.com          บ
 บ                                                          บ
 ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
+'ออออออออออออออออออออออออออออออออออออออออออออออออออออออออออ
+#include  "CabFunc.bi" 
+'ออออออออออออออออออออออออออออออออออออออออออออออออออออออออออ
 
-Function Main() as integer
-    
-   return 0
+dim shared Olhar as string * 1 
+
+declare sub init
+declare sub nextChar
+declare sub erros
+
+
+public sub init
+    nextChar
+end sub
+
+public sub nextChar
+    olhar = PegaLetra ' = getchar em c 
+end sub
+
+Function Main as integer    
+    print
+    print "=> programa ";_Compilador;" -Versao: ";Versao
+    print "   Primeiro teste...."
+    init()
+    return 0
 end function
-
+cls
+main
 Fim
