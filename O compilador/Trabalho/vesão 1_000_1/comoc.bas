@@ -21,7 +21,8 @@ dim shared Olhar as string * 1
 
 declare sub init
 declare sub nextChar
-declare sub erros
+declare sub erros (x as string)
+declare sub esperado(x as string)
 
 
 public sub init
@@ -31,6 +32,17 @@ end sub
 public sub nextChar
     olhar = PegaLetra 
 end sub
+
+public sub erros(ero as string)
+    print"erro ";ero
+end sub
+
+public sub esperado(x as string)
+    
+end sub
+
+
+
 
 Function Main as integer    
     print
