@@ -17,6 +17,7 @@ end sub
 บ - SUB ===> Fim()  - rotina de final de programa      บ
 ศออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public sub Fim
+    main
     Pausa
 end sub
 
