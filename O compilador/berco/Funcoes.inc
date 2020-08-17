@@ -74,3 +74,29 @@ public function PegaLetra() as string
     print
     return L2
 end function
+/'
+ษออออออออออออออออออออออออออออออออออออออออออออออออออออออป
+บ                                                      บ
+บ - Funao ===> Enumero(x as string) as Boolean        บ
+บ   Retirn true se for numeros se nao retorna false    บ
+บ                                                      บ
+ศออออออออออออออออออออออออออออออออออออออออออออออออออออออผ '/
+public function Enumero(Letras as string) as boolean
+    dim VF as boolean = false
+    dim as integer X, Y, Z
+    z= len(Letras)
+    for x = 1 to z
+        y = asc(Letras,x) 
+        if y >= 48 and y <= 57 then
+            VF = true
+        else
+            VF = false
+            exit for
+        end if
+    next 
+    return VF 
+end function
+
+
+
+
