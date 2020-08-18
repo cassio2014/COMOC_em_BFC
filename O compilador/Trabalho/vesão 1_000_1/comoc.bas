@@ -8,7 +8,7 @@
 บ                                                          บ
 บ     versao         : 1.000.1                             บ
 บ     Data Inicio    : 26-07-2020                          บ
-บ     Data Alteraao : 16-08-2020                          บ
+บ     Data Alteraao : 18-08-2020                          บ
 บ     Autor          : Cassio Butrico                      บ
 บ     e-mail         : cassio_butrico@hotmail.com          บ
 บ                                                          บ
@@ -110,6 +110,7 @@ end sub
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 Function Main as integer    
     cls
+    print "==> Conc Versao:";Versao
     Inicio
     return 0
 end function
