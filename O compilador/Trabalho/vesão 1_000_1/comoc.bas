@@ -29,37 +29,48 @@ declare sub Fatal(x as string)        ' fatal
 declare sub Esperado(x as string)     ' expected 
 declare sub Igualar(C as string)      ' match
 declare function PegaNome as string   ' getName
-declare function PehaNumero as string ' getNum
+declare function PegaNumero as string ' getNum
 declare sub emitir(x as string)       ' emitir
+/' 
+อออออออออออออออออออออออออออออออออออออออออออออออออออออ
+ษอออออออออออออออออออออออออออออออออออออออออออออออออออป
+บ Main   PROGRAMA PRINCIPAL                         บ
+ศอออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
+Function Main as integer    
+    cls
+    print "==> Conc Versao:";Versao
+    Inicio '==> Init
+    return 0
+end function
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออป
 บ init - inicializaao do compilador                บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public sub Inicio
-    ProximaLetra
+    ProximaLetra '==> NextChar
 end sub
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออป
 บ nextChar - l prขximo caracter da entrada         บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public sub ProximaLetra  
-    olhar = PegaLetra 
+    olhar = PegaLetra '==> look = getchar
 end sub
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออป
 บ  error - exibe uma mensagem de erro formatada     บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public sub erros(ero as string)
-    print"erro ";ero
+     print"erro ==> ";ero
+     sleep
 end sub
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออป
 บ fatal - exibe uma mensagem de erro formatada e saiบ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
  public sub Fatal(ero as string) 
-     print"erro ";ero
+     print"erro ==> ";ero
      sleep
-     error 1
  end sub
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออป
@@ -68,7 +79,6 @@ end sub
 public sub Esperado(xerro as string)
     print "Esperado ";xerro
     sleep
-    error 1
 end sub    
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออป
@@ -92,7 +102,7 @@ end function
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออป
 บ getNum                                            บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
-public function PehaNumero as string 
+public function PegaNumero as string 
     
      return " "
 end function
@@ -103,17 +113,6 @@ end function
 public sub emitir(x as string)
     
 end sub
-/' 
-อออออออออออออออออออออออออออออออออออออออออออออออออออออ
-ษอออออออออออออออออออออออออออออออออออออออออออออออออออป
-บ Main   PROGRAMA PRINCIPAL                         บ
-ศอออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
-Function Main as integer    
-    cls
-    print "==> Conc Versao:";Versao
-    Inicio
-    return 0
-end function
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออป
 บ FIM                                               บ
