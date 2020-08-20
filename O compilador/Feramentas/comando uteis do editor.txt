@@ -1,3 +1,6 @@
+O editor e o compilador FreeBasic esta na pasta 
+Ferramentas
+
 <tab> =  a tecla tab 
 
 Select Case            - digite scc<tab>

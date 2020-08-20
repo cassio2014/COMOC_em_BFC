@@ -1,12 +1,15 @@
+O editor e o compilador FreeBasic esta na pasta 
+Ferramentas
+
 <tab> =  a tecla tab 
 
-Select Case            - scc<tab>
-Comando do until       - dodo<tab>
-comando IF             - ifif<tab>
-Comentario Simples     - cs<tb>
-Cabeçalho para Funções - cf<tab>
-Titulo Primcipal       - tg<tab>
-data de atualização    - datu<bat>
+Select Case            - digite scc<tab>
+Comando do until       - digite dodo<tab>
+comando IF             - digite ifif<tab>
+Comentario Simples     - digite cs<tb>
+Cabeçalho para Funções - digite cf<tab>
+Titulo Primcipal       - digite tg<tab>
+data de atualização    - digite datu<bat>
 
 
 /'caracteres em OEM
