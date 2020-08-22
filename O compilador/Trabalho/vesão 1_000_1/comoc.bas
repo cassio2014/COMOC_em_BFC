@@ -8,7 +8,7 @@
 บ                                                          บ
 บ     versao         : 1.000.1                             บ
 บ     Data Inicio    : 26-07-2020                          บ
-บ     Data Alteraao : 18-08-2020                          บ
+บ     Data Alteraao : 22-08-2020                          บ
 บ     Autor          : Cassio Butrico                      บ
 บ     e-mail         : cassio_butrico@hotmail.com          บ
 บ                                                          บ
@@ -95,16 +95,28 @@ end sub
 บ getName - recebe o nome de um identificador       บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public function PegaNome as string 
-     
-     return " "
+    
+    DIM NOME as string
+    if  Enumero(olhar) then
+        Esperado("Nome")
+    end if
+    NOME = UCase(olhar)
+    ProximaLetra
+    return NOME
 end function
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออป
 บ getNum                                            บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public function PegaNumero as string 
-    
-     return " "
+
+    DIM NUMERO as string
+    if NOT Enumero(olhar) then
+        Esperado("Inteiro")
+    end if
+    NUMERO = olhar
+    ProximaLetra
+    return NUMERO
 end function
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออป
