@@ -8,7 +8,7 @@
 บ                                                          บ
 บ     versao         : 1.000.1                             บ
 บ     Data Inicio    : 26-07-2020                          บ
-บ     Data Alteraao : 18-08-2020                          บ
+บ     Data Alteraao : 23-08-2020                          บ
 บ     Autor          : Cassio Butrico                      บ
 บ     e-mail         : cassio_butrico@hotmail.com          บ
 บ                                                          บ
@@ -30,7 +30,9 @@ declare sub Esperado(x as string)     ' expected
 declare sub Igualar(C as string)      ' match
 declare function PegaNome as string   ' getName
 declare function PegaNumero as string ' getNum
-declare sub emitir(x as string)       ' emitir
+declare sub emitir(Comando as string, _
+                   Destino as string, _
+                   Origem  as string) ' emitir
 /' 
 อออออออออออออออออออออออออออออออออออออออออออออออออออออ
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออป
@@ -95,23 +97,42 @@ end sub
 บ getName - recebe o nome de um identificador       บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public function PegaNome as string 
-     
-     return " "
+    
+    DIM NOME as string
+    if  Enumero(olhar) then
+        Esperado("Nome")
+    end if
+    NOME = UCase(olhar)
+    ProximaLetra
+    return NOME
 end function
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออป
 บ getNum                                            บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public function PegaNumero as string 
-    
-     return " "
+
+    DIM NUMERO as string
+    if NOT Enumero(olhar) then
+        Esperado("Inteiro")
+    end if
+    NUMERO = olhar
+    ProximaLetra
+    return NUMERO
 end function
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออป
-บ emitir                                            บ
+บ emitir  - Emitir o assembler                      บ
+บ           Primeira fase da Montagem               บ
+บ           fururamente criar um arquivo            บ
+บ           provisorio e montar com assembly        บ
+บ           - estudar como fazer izzo.              บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
-public sub emitir(x as string)
-    
+public sub emitir(Comando as string, _
+                  Destino as string, _
+                  Origem  as string) 
+
+    print tab(10); Comando," ",dESTINO," , ",oRIGEM
 end sub
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออป
