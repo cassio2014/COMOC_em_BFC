@@ -10,7 +10,7 @@ Public sub Pausa
     Print
     Print "Pressione qualquer tecla para continuar. . ..";
     Sleep
-    cls
+   ' cls
 end sub
 /'
 浜様様様様様様様様様様様様様様様様様様様様様様様様様様融
