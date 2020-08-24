@@ -55,6 +55,7 @@ end function
 บ - Funao ===> Teclas =  Le o Teclado sem mostrar    บ
 บ               o caracter na tela - Retorna com o    บ
 บ               Caracter com uma string               บ
+บ                                                     บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออผ '/
 public Function Teclas as string
     return chr(GetKey)
@@ -72,9 +73,18 @@ public function PegaLetra() as string
     dim L3 as integer
 
     while L3  <> 13
-        L2 = Teclas ' Le o teclado sem mostrar o caracter
+        
+        ' Teclas = Le o teclado sem mostrar o caracter
+        L2 = Teclas 
+        /' 
+          Descobrir um modo de: Quando teclar o back space
+          apagar o caracter a esquerda da linha 
+          ou ate nao termais caracteres a esquerda
+          
+         '/
         locate CsrLin
         print L2;
+        
         L1 = L1 + L2
         L3 = asc(L2)
     wend
