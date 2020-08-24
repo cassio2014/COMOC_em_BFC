@@ -48,6 +48,17 @@ public function NomePrograma(Nome as string) as string
 
     return programa
 end function
+
+/'
+ษอออออออออออออออออออออออออออออออออออออออออออออออออออออป
+บ                                                     บ
+บ - Funao ===> Teclas =  Le o Teclado sem mostrar    บ
+บ               o caracter na tela - Retorna com o    บ
+บ               Caracter com uma string               บ
+ศอออออออออออออออออออออออออออออออออออออออออออออออออออออผ '/
+public Function Teclas as string
+    return chr(GetKey)
+end function
 /'
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออป
 บ                                                     บ
@@ -61,9 +72,8 @@ public function PegaLetra() as string
     dim L3 as integer
 
     while L3  <> 13
-        do
-           L2 = inkey
-        loop until L2 <> ""
+        L2 = Teclas ' Le o teclado sem mostrar o caracter
+        locate CsrLin
         print L2;
         L1 = L1 + L2
         L3 = asc(L2)

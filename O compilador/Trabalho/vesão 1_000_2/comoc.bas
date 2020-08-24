@@ -107,7 +107,7 @@ public function PegaNome as string
         Esperado("Nome")
     end if
     NOME = UCase(olhar)
-   ProximaLetra
+
     return NOME
 end function
 /' 
@@ -121,7 +121,7 @@ public function PegaNumero() as string
         Esperado("Inteiro")
     end if
     NUMERO = olhar
-    ProximaLetra
+
     return NUMERO
 end function
 /' 
