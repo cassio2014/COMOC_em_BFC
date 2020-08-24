@@ -20,7 +20,6 @@ dim SHARED AS LCAG   _LC
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 '==> funoes
 declare Function Main as integer
-Declare Function Teclas as string
 declare function NomePrograma(Nome as string) as string
 declare function Enumero(Letras as string) as boolean  
 '==> Subrotinas

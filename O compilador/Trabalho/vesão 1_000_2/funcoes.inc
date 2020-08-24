@@ -48,18 +48,6 @@ public function NomePrograma(Nome as string) as string
 
     return programa
 end function
-
-/'
-ษอออออออออออออออออออออออออออออออออออออออออออออออออออออป
-บ                                                     บ
-บ - Funao ===> Teclas =  Le o Teclado sem mostrar    บ
-บ               o caracter na tela - Retorna com o    บ
-บ               Caracter com uma string               บ
-บ                                                     บ
-ศอออออออออออออออออออออออออออออออออออออออออออออออออออออผ '/
-public Function Teclas as string
-    return chr(GetKey)
-end function
 /'
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออป
 บ                                                     บ
@@ -68,14 +56,14 @@ end function
 บ                                                     บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออผ '/
 public function PegaLetra() as string 
-    dim L1 as string 
-    dim L2 as string * 1
-    dim L3 as integer
+    dim Le1 as string 
+    dim Le2 as string * 1
+    dim Le3 as integer
 
-    while L3  <> 13
+    while Le3  <> 13
         
         ' Teclas = Le o teclado sem mostrar o caracter
-        L2 = Teclas 
+        Le2 = chr(GetKey)   
         /' 
           Descobrir um modo de: Quando teclar o back space
           apagar o caracter a esquerda da linha 
@@ -83,16 +71,16 @@ public function PegaLetra() as string
           
          '/
         locate CsrLin
-        print L2;
+        print Le2;
         
-        L1 = L1 + L2
-        L3 = asc(L2)
+        Le1 = Le1 + Le2
+        Le3 = asc(Le2)
     wend
-    if len(L1)>1 then
-        L2 = left(L1,2) 
+    if len(Le1)>1 then
+        Le2 = left(Le1,2) 
     end if
     print
-    return L2
+    return Le2
 end function
 /'
 ษออออออออออออออออออออออออออออออออออออออออออออออออออออออป
