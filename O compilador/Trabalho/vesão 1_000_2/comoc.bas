@@ -59,7 +59,6 @@ end sub
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public sub ProximaLetra  
     olhar = PegaLetra '==> look = getchar
-'	print "==> ";olhar
 end sub
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออป

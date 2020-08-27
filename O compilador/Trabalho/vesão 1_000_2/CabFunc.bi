@@ -1,11 +1,10 @@
 /'caracteres em OEM
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออป
 บ Arquivo: CadFiv.bi   cabealho de funoes         บ
-ศอออออออออออออออออออออออออออออออออออออออออออออออออออผ
-ษออออออออออออออออออออออออออออออออออออออออป
-บ Variaveis funoes e rotinas            บ
-ศออออออออออออออออออออออออออออออออออออออออผ'/
-' ===>  LCAG Argumentos para a Linha de Comando 
+ฬอออออออออออออออออออออออออออออออออออออออออออออออออออน
+บ Variaveis, funoes e rotinas                      บ
+ศอออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
+' ===>  LCAG - Argumentos para a Linha de Comando 
 type LCAG
     AG01 as string * 2 '1๘ argumento  2 letras
     AG02 as string     '2๘ argumentro string com o nome
