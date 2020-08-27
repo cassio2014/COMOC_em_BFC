@@ -56,31 +56,32 @@ end function
 บ                                                     บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออผ '/
 public function PegaLetra() as string 
-    dim Le1 as string 
-    dim Le2 as string * 1
-    dim Le3 as integer
-
-    while Le3  <> 13
-        
-        ' Teclas = Le o teclado sem mostrar o caracter
-        Le2 = chr(GetKey)   
-        /' 
-          Descobrir um modo de: Quando teclar o back space
-          apagar o caracter a esquerda da linha 
-          ou ate nao termais caracteres a esquerda
-          
-         '/
-        locate CsrLin
-        print Le2;
-        
-        Le1 = Le1 + Le2
-        Le3 = asc(Le2)
+    
+    dim c  as string * 1
+	dim Rc as string * 1
+    dim pi as integer  = pos
+    dim pf as integer  = pos
+	
+    locate csrlin,pos
+    while asc(c)  <> 13
+        c = chr(getkey)
+		if pi = pf and asc(c) <> 8 then
+			Rc = c 
+		end if
+		if pf > pi and asc(c) = 8 then
+			locate csrlin, pf - 1
+			print " ";
+			pf = pf - 1
+			locate csrlin, pos - 1
+			pf=pos
+		end if
+		if asc(c) <> 8 then
+			print c;
+			pf = pos
+		end if
     wend
-    if len(Le1)>1 then
-        Le2 = left(Le1,2) 
-    end if
     print
-    return Le2
+    return Rc
 end function
 /'
 ษออออออออออออออออออออออออออออออออออออออออออออออออออออออป
@@ -91,9 +92,8 @@ end function
 ศออออออออออออออออออออออออออออออออออออออออออออออออออออออผ '/
 public function Enumero(Letras as string) as boolean
     dim VF as boolean = false
-    dim as integer X, Y, Z
-    z= len(Letras)
-    for x = 1 to z
+    dim as integer X, Y
+    for x = 1 to len(Letras)
         y = asc(Letras,x) 
         if y >= 48 and y <= 57 then
             VF = true

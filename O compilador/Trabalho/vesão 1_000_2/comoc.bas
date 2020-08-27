@@ -8,7 +8,7 @@
 บ                                                          บ
 บ     versao         : 1.000.2                             บ
 บ     Data Inicio    : 26-07-2020                          บ
-บ     Data Alteraao : 23-08-2020                          บ
+บ     Data Alteraao : 27-08-2020                          บ
 บ     Autor          : Cassio Butrico                      บ
 บ     e-mail         : cassio_butrico@hotmail.com          บ
 บ                                                          บ
@@ -52,7 +52,6 @@ end function
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public sub Inicio
     ProximaLetra '==> NextChar
-    
 end sub
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออป
@@ -60,6 +59,7 @@ end sub
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public sub ProximaLetra  
     olhar = PegaLetra '==> look = getchar
+'	print "==> ";olhar
 end sub
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออป
@@ -135,7 +135,7 @@ public sub Emitir(Comando as string, _
                   Origem  as string) 
 
     print tab(10); Comando;" ";Destino;" , ";Origem
-end sub
+end sub   
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออป
 บ expression - analisa e traduz uma expressao       บ

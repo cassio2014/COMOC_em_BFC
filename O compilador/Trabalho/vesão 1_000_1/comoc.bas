@@ -6,9 +6,9 @@
 บ  Compilador simples                                      บ
 บ  Na Linguagem freeBasic                                  บ
 บ                                                          บ
-บ     versao         : 1.000.1                             บ
+บ     versao         : 1.000.2                             บ
 บ     Data Inicio    : 26-07-2020                          บ
-บ     Data Alteraao : 23-08-2020                          บ
+บ     Data Alteraao : 27-08-2020                          บ
 บ     Autor          : Cassio Butrico                      บ
 บ     e-mail         : cassio_butrico@hotmail.com          บ
 บ                                                          บ
@@ -24,13 +24,13 @@ dim shared Olhar as string * 1
    
 declare sub Inicio                    ' init
 declare sub ProximaLetra              ' nextChar
-declare sub erros (x as string)       ' error
+declare sub Erros (x as string)       ' error
 declare sub Fatal(x as string)        ' fatal
 declare sub Esperado(x as string)     ' expected 
 declare sub Igualar(C as string)      ' match
 declare function PegaNome as string   ' getName
 declare function PegaNumero as string ' getNum
-declare sub emitir(Comando as string, _
+declare sub Emitir(Comando as string, _
                    Destino as string, _
                    Origem  as string) ' emitir
 /' 
@@ -57,12 +57,13 @@ end sub
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public sub ProximaLetra  
     olhar = PegaLetra '==> look = getchar
+	print "==> ";olhar
 end sub
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออป
 บ  error - exibe uma mensagem de erro formatada     บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
-public sub erros(ero as string)
+public sub Erros(ero as string)
      print"erro ==> ";ero
      sleep
 end sub
@@ -80,7 +81,8 @@ end sub
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public sub Esperado(xerro as string)
     print "Esperado ";xerro
-    sleep
+    Pausa
+    end
 end sub    
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออป
@@ -103,38 +105,36 @@ public function PegaNome as string
         Esperado("Nome")
     end if
     NOME = UCase(olhar)
-    ProximaLetra
     return NOME
 end function
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออป
-บ getNum                                            บ
+บ getNum - recebe um nฃmero inteiro                 บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
-public function PegaNumero as string 
+public function PegaNumero() as string 
 
-    DIM NUMERO as string
-    if NOT Enumero(olhar) then
+    DIM  NUMERO as string
+    if not Enumero(olhar) then
         Esperado("Inteiro")
     end if
     NUMERO = olhar
-    ProximaLetra
     return NUMERO
 end function
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออป
-บ emitir  - Emitir o assembler                      บ
+บ emit    - Emitir o assembler                      บ
 บ           Primeira fase da Montagem               บ
 บ           fururamente criar um arquivo            บ
 บ           provisorio e montar com assembly        บ
 บ           - estudar como fazer izzo.              บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
-public sub emitir(Comando as string, _
+public sub Emitir(Comando as string, _
                   Destino as string, _
                   Origem  as string) 
 
-    print tab(10); Comando," ",dESTINO," , ",oRIGEM
-end sub
-/' 
+    print tab(10); Comando;" ";Destino;" , ";Origem
+end sub   
+/'  
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออป
 บ FIM                                               บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออผ'/

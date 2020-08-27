@@ -56,23 +56,38 @@ end function
 บ                                                     บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออผ '/
 public function PegaLetra() as string 
-    dim L1 as string 
-    dim L2 as string * 1
-    dim L3 as integer
+    
+    dim c  as string * 1
+	dim Rc as string * 1
+    dim pi as integer  = pos
+    dim pf as integer  = pos
+	
+    locate csrlin,pos
+    
+    while asc(c)  <> 13
+	
+        c = chr(getkey)
+		
+		if pi = pf and asc(c) <> 8 then
+			Rc = c 
+		end if
+		
+		if pf > pi and asc(c) = 8 then
+			locate csrlin, pf - 1
+			print " ";
+			pf = pf - 1
+			locate csrlin, pos - 1
+			pf=pos
+		end if
+		
+		if asc(c) <> 8 then
+			print c;
+			pf = pos
+		end if
 
-    while L3  <> 13
-        do
-           L2 = inkey
-        loop until L2 <> ""
-        print L2;
-        L1 = L1 + L2
-        L3 = asc(L2)
     wend
-    if len(L1)>1 then
-        L2 = left(L1,2) 
-    end if
     print
-    return L2
+    return Rc
 end function
 /'
 ษออออออออออออออออออออออออออออออออออออออออออออออออออออออป
@@ -83,9 +98,8 @@ end function
 ศออออออออออออออออออออออออออออออออออออออออออออออออออออออผ '/
 public function Enumero(Letras as string) as boolean
     dim VF as boolean = false
-    dim as integer X, Y, Z
-    z= len(Letras)
-    for x = 1 to z
+    dim as integer X, Y
+    for x = 1 to len(Letras)
         y = asc(Letras,x) 
         if y >= 48 and y <= 57 then
             VF = true
