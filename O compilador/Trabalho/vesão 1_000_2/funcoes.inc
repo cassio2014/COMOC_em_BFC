@@ -1,32 +1,24 @@
 /'caracteres em OEM
-ษอออออออออออออออออออออออออออออออออออออออออออออออออออออป
-บ  Arquivo: Funoes.inc  Funoes para o compilador    บ
-ศอออออออออออออออออออออออออออออออออออออออออออออออออออออผ
-ษอออออออออออออออออออออออออออออออออออออออออออออออออออออป
-บ                                                     บ
-บ - Ffunao  ===> NomePrograma()                      บ
-บ                                                     บ
-บ    Le o caminho com o nome do programa              บ
-บ    e separa o nome e retira a exten็ใo.exe.         บ
-บ                                                     บ
-ศอออออออออออออออออออออออออออออออออออออออออออออออออออออผ '/
+ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
+บ  Arquivo: Funoes.inc  Funoes para o compilador        บ
+ฬอออออออออออออออออออออออออออออออออออออออออออออออออออออออออน
+บ - Ffunao  ===> NomePrograma()                          บ
+บ                 Le o caminho com o nome do programa     บ
+บ                 e separa o nome e retira a o nome       บ
+บ                 do programa dem o .exe                  บ
+ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public function NomePrograma(Nome as string) as string
-    
     dim  as string programa,clido
     dim  as integer i, cont, ponto
     dim  as boolean sim, achou
-    
     sim      = true
     achou    = false
     cont     = len(Nome)
     programa = Nome
-        
     do
         clido = mid(programa,cont,1)
-
         if clido  = "\" or _
            clido  = "." then
-           
            if clido      = "." then
                ponto     = cont - 1
                programa  = left(programa,ponto)
@@ -36,32 +28,24 @@ public function NomePrograma(Nome as string) as string
               achou      = sim ' sai do loop
               programa   = mid(programa,cont + 1)
            end if
-
         end if
         cont -= 1
-              
         if cont <= 0 then 
             achou = sim ' sai dso loop
         end if
-        
     loop until achou = sim
-
     return programa
 end function
 /'
-ษอออออออออออออออออออออออออออออออออออออออออออออออออออออป
-บ                                                     บ
-บ - Funao ===> PegaLetra() as string                 บ
-บ   le a letra digitada do teclado                    บ
-บ                                                     บ
-ศอออออออออออออออออออออออออออออออออออออออออออออออออออออผ '/
+ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
+บ - Funao ===> PegaLetra() as string                     บ
+บ              le a letra digitada do teclado             บ
+ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public function PegaLetra() as string 
-    
     dim c  as string * 1
 	dim Rc as string * 1
     dim pi as integer  = pos
     dim pf as integer  = pos
-	
     locate csrlin,pos
     while asc(c)  <> 13
         c = chr(getkey)
@@ -84,12 +68,11 @@ public function PegaLetra() as string
     return Rc
 end function
 /'
-ษออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-บ                                                      บ
-บ - Funao ===> Enumero(x as string) as Boolean        บ
-บ   Retirn true se for numeros se nao retorna false    บ
-บ                                                      บ
-ศออออออออออออออออออออออออออออออออออออออออออออออออออออออผ '/
+ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
+บ - Funao ===> Enumero(x as string) as Boolean           บ
+บ               Retirn true se for numeros se nao         บ
+บ               retorna false                             บ
+ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public function Enumero(Letras as string) as boolean
     dim VF as boolean = false
     dim as integer X, Y
@@ -104,7 +87,3 @@ public function Enumero(Letras as string) as boolean
     next 
     return VF 
 end function
-
-
-
-

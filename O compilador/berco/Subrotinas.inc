@@ -1,11 +1,9 @@
 /' caracteres em OEM
-ษออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-บ Arquivo:Subrotinas.inc ,cabealho das Rotinas        บ
-ศออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
-/'
-ษออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-บ - sub ===> pausa - interompe e mopstra uma mensagem  บ
-ศออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
+ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
+บ Arquivo:Subrotinas.inc ,cabealho das Rotinas           บ
+ฬอออออออออออออออออออออออออออออออออออออออออออออออออออออออออน
+บ - sub ===> pausa - interompe e mopstra uma mensagem     บ
+ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 Public sub Pausa
     Print
     Print "Pressione qualquer tecla para continuar. . ..";
@@ -13,9 +11,9 @@ Public sub Pausa
    ' cls
 end sub
 /'
-ษออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-บ - SUB ===> Fim()  - rotina de final de programa      บ
-ศออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
+ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
+บ - SUB ===> Fim()  - rotina de final de programa         บ
+ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public sub Fim
     main
     Pausa
