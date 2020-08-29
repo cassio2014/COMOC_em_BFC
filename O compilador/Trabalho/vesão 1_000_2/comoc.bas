@@ -24,21 +24,21 @@ dim shared Olhar as string * 1
 'ออออออออออออออออออออออออออออออออออออออออออออออออออออออออออ
 declare sub Inicio()                             ' init
 declare sub ProximaLetra()                       ' nextChar
-declare sub Erros (x as string)                 ' error
-declare sub Fatal(x as string)                  ' fatal
-declare sub Esperado(x as string)               ' expected 
-declare sub Combina(C as string)                ' match
-declare function PegaNome() as string           ' getName
-declare function PegaNumero() as string         ' getNum
-declare sub Emitir(comando as string)           ' emitir
-declare sub Expressao()                          ' expression                 
+declare sub Erros (x as string)                  ' error
+declare sub Fatal(x as string)                   ' fatal
+declare sub Esperado(x as string)                ' expected 
+declare sub Combina(C as string)                 ' match
+declare function PegaNome() as string            ' getName
+declare function PegaNumero() as string          ' getNum
+declare sub Emitir(comando as string)            ' emitir
+declare sub Expressao()                          ' expression                
 declare sub Termo()                              ' term        
 declare sub Adiciona()                           ' add
 declare sub Subtrai()                            ' subtract
 declare sub Fator()                              ' factor
 declare sub Multiplica()                         ' multiply
 declare sub Divide()                             ' divide
-declare function Eopadt(c as string) as boolean ' isAddOp
+declare function Eopadt(c as string) as boolean  ' isAddOp
 'ออออออออออออออออออออออออออออออออออออออออออออออออออออออออออ
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
@@ -161,7 +161,7 @@ end sub
 บ expression - reconhece e traduz uma expressao           บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/ 
 public sub Expressao()
-	
+    
     if Eopadt(olhar) then
         Emitir("XOR AX, AX")
     else
