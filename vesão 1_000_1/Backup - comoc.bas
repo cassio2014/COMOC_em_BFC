@@ -21,8 +21,6 @@ Versao = "v1.000.1"'===> a versao Atual
 บ     protขtipos                                           บ
 ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 dim shared Olhar as string * 1 
-dim shared ContCol as integer
-dim shared ContLim as integer
 'ออออออออออออออออออออออออออออออออออออออออออออออออออออออออออ
 declare sub Inicio()                              ' init
 declare sub ProximaLetra()                        ' nextChar
@@ -48,7 +46,7 @@ declare function Eopadt(c as string) as boolean   ' isAddOp
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 Function Main as integer    
     cls
-    print "**** "& _Compilador &" Versao:";Versao & " ****"
+    print "==> "& _Compilador &" Versao:";Versao
     Inicio()    '==> Init
     Expressao() '==> expression
     return 0
@@ -58,12 +56,6 @@ end function
 บ init - inicializaao do compilador                      บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public sub Inicio()
-    print "- Gera codigo assembly - digite 7*2-(3+1)"
-    print "<e> = enter Ex: 7<e>*<e>2<e>-<e>(<e>3<e>+<e>1<e>)<e><e>"
-    print
-    print "===>"; ' Aqui  a 5a linha.
-    ContLim = 7
-    ContCol = pos
     ProximaLetra() '==> NextChar
 end sub
 /' 
@@ -71,9 +63,7 @@ end sub
 บ nextChar - l prขximo caracter da entrada               บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public sub ProximaLetra()
-    locate 5,ContCol
     olhar = PegaLetra() '==> look = getchar
-    ContCol = ContCol + 1
 end sub
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
@@ -146,9 +136,7 @@ end function
 บ           provisorio e montar com assembly              บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public sub Emitir(Comando as string) 
-    locate  ContLim
     print tab(10); comando
-    ContLim =  ContLim + 1
 end sub   
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
