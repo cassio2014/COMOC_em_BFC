@@ -29,7 +29,6 @@ declare sub Fim
 บ Inicializaao e atribuiao iniciais                     บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 _Compilador = NomePrograma(command(0))
-Versao = "v1.000.1"
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
 บ #Include arquivos aqui                                  บ

@@ -13,32 +13,32 @@
 บ     e-mail         : cassio_butrico@hotmail.com          บ
 บ                                                          บ
 ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
-'ออออออออออออออออออออออออออออออออออออออออออออออออออออออออออ
 #include  "CabFunc.bi" 
 'ออออออออออออออออออออออออออออออออออออออออออออออออออออออออออ
- /'
-ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-บ     protขtipos                                          บ
-ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
+Versao = "v1.000.1"'===> a versao Atual
+/'
+ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
+บ     protขtipos                                           บ
+ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 dim shared Olhar as string * 1 
 'ออออออออออออออออออออออออออออออออออออออออออออออออออออออออออ
-declare sub Inicio()                            ' init
-declare sub ProximaLetra()                      ' nextChar
-declare sub Erros (x as string)                 ' error
-declare sub Fatal(x as string)                  ' fatal
-declare sub Esperado(x as string)               ' expected 
-declare sub Combina(C as string)                ' match
-declare function PegaNome() as string           ' getName
-declare function PegaNumero() as string         ' getNum
-declare sub Emitir(comando as string)           ' emitir
-declare sub Expressao()                          ' expression                 
-declare sub Termo()                              ' term        
-declare sub Adiciona()                           ' add
-declare sub Subtrai()                            ' subtract
-declare sub Fator()                              ' factor
-declare sub Multiplica()                         ' multiply
-declare sub Divide()                             ' divide
-declare function Eopadt(c as string) as boolean ' isAddOp
+declare sub Inicio()                              ' init
+declare sub ProximaLetra()                        ' nextChar
+declare sub Erros (x as string)                   ' error
+declare sub Fatal(x as string)                    ' fatal
+declare sub Esperado(x as string)                 ' expected
+declare sub Combina(C as string)                  ' match
+declare function PegaNome() as string             ' getName
+declare function PegaNumero() as string           ' getNum
+declare sub Emitir(comando as string)             ' emitir
+declare sub Expressao()                           ' expression
+declare sub Termo()                               ' term
+declare sub Adiciona()                            ' add
+declare sub Subtrai()                             ' subtract
+declare sub Fator()                               ' factor
+declare sub Multiplica()                          ' multiply
+declare sub Divide()                              ' divide
+declare function Eopadt(c as string) as boolean   ' isAddOp
 'ออออออออออออออออออออออออออออออออออออออออออออออออออออออออออ
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
@@ -46,7 +46,7 @@ declare function Eopadt(c as string) as boolean ' isAddOp
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 Function Main as integer    
     cls
-    print "==> Comoc Versao:";Versao
+    print "==> "& _Compilador &" Versao:";Versao
     Inicio()    '==> Init
     Expressao() '==> expression
     return 0
@@ -161,7 +161,7 @@ end sub
 บ expression - reconhece e traduz uma expressao           บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/ 
 public sub Expressao()
-	
+    
     if Eopadt(olhar) then
         Emitir("XOR AX, AX")
     else
