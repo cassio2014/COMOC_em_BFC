@@ -145,7 +145,7 @@ end sub
 public sub Termo()
       Fator()
       while olhar = "*" or olhar = "/"
-        Emitir("PUSH AX") 
+        Emitir("PUSH EAX") 
         select case olhar
             case "*"
                 Multiplica()
@@ -163,12 +163,12 @@ end sub
 public sub Expressao()
     
     if Eopadt(olhar) then
-        Emitir("XOR AX, AX")
+        Emitir("XOR EAX, EAX")
     else
         Termo()
     end if
     while Eopadt(olhar)
-        Emitir("PUSH AX") 
+        Emitir("PUSH EAX") 
         select case olhar
             case "+"
                 Adiciona()
@@ -186,8 +186,8 @@ end sub
 public sub Adiciona()
     Combina("+")
     Termo()
-    Emitir("POP BX")
-    Emitir("ADD AX, BX")
+    Emitir("POP EBX")
+    Emitir("ADD EAX, EBX")
 end sub
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
@@ -196,9 +196,9 @@ end sub
 PUBLIC SUB Subtrai()
     Combina("-")
     Termo()
-    Emitir("POP BX")
-    Emitir("SUB AX, BX")
-    Emitir("NEG AX")
+    Emitir("POP EBX")
+    Emitir("SUB EAX, EBX")
+    Emitir("NEG EAX")
 end sub
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
@@ -210,7 +210,7 @@ public sub Fator()
        Expressao()
        combina(")")
    else
-       Emitir("MOV AX, "& PegaNumero)     
+       Emitir("MOV EAX, "& PegaNumero)     
    end if
 end sub
 /' 
@@ -220,8 +220,8 @@ end sub
 public sub Multiplica()    
     Combina("*")
     Fator()
-    Emitir("POP BX")
-    Emitir("IMUL BX")
+    Emitir("POP EBX")
+    Emitir("IMUL EBX")
 end sub
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
@@ -230,10 +230,10 @@ end sub
 public sub Divide() 
     Combina("/")
     Fator()
-    Emitir("POP BX")
-    Emitir("XCHG AX, BX")
+    Emitir("POP EBX")
+    Emitir("XCHG EAX, EBX")
     Emitir("CWD")
-    Emitir("IDIV BX")
+    Emitir("IDIV EBX")
 end sub
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
