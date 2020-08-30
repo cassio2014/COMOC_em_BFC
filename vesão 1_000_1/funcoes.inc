@@ -44,26 +44,26 @@ end function
 public function PegaLetra() as string 
     dim c  as string * 1
 	dim Rc as string * 1
-    dim pi as integer  = pos
-    dim pf as integer  = pos
+'    dim pi as integer  = pos
+'    dim pf as integer  = pos
     locate csrlin,pos
-    while asc(c)  <> 13
+  '  while asc(c)  <> 13
         c = chr(getkey)
-		if pi = pf and asc(c) <> 8 then
-			Rc = c 
-		end if
-		if pf > pi and asc(c) = 8 then
-			locate csrlin, pf - 1
-			print " ";
-			pf = pf - 1
-			locate csrlin, pos - 1
-			pf=pos
-		end if
-		if asc(c) <> 8 then
+'        if pi = pf and asc(c) <> 8 then
+            Rc = c 
+'        end if
+'		if pf > pi and asc(c) = 8 then
+'			locate csrlin, pf - 1
+'			print " ";
+'			pf = pf - 1
+'			locate csrlin, pos - 1
+'			pf=pos
+'		end if
+'		if asc(c) <> 8 then
 			print c;
-			pf = pos
-		end if
-    wend
+'			pf = pos
+'		end if
+ '   wend
     print
     return Rc
 end function

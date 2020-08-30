@@ -58,11 +58,11 @@ end function
 บ init - inicializaao do compilador                      บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public sub Inicio()
+    print
     print "- Gera codigo assembly - digite 7*2-(3+1)"
-    print "<e> = enter Ex: 7<e>*<e>2<e>-<e>(<e>3<e>+<e>1<e>)<e><e>"
     print
     print "===>"; ' Aqui  a 5a linha.
-    ContLim = 7
+    ContLim = 8
     ContCol = pos
     ProximaLetra() '==> NextChar
 end sub
@@ -72,7 +72,7 @@ end sub
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public sub ProximaLetra()
     locate 5,ContCol
-    olhar = PegaLetra() '==> look = getchar
+    olhar   = PegaLetra() '==> look = getchar
     ContCol = ContCol + 1
 end sub
 /' 
@@ -100,6 +100,7 @@ end sub
 public sub Esperado(xerro as string)
     locate 6
     print "=> Esperado ";xerro
+     locate  ContLim 
     Pausa
     end
 end sub    
