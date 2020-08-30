@@ -41,6 +41,7 @@ declare sub Fator()                               ' factor
 declare sub Multiplica()                          ' multiply
 declare sub Divide()                              ' divide
 declare function Eopadt(c as string) as boolean   ' isAddOp
+declare sub Identifica()                          ' ident 
 'ออออออออออออออออออออออออออออออออออออออออออออออออออออออออออ
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
@@ -55,20 +56,20 @@ Function Main as integer
 end function
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-บ init - inicializaao do compilador                      บ
+บ init - Inicio() inicializaao do compilador             บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public sub Inicio()
     print
     print "- Gera codigo assembly - digite 7*2-(3+1)"
     print
-    print "===>"; ' Aqui  a 5a linha.
+    print "===>";
     ContLim = 8
     ContCol = pos
     ProximaLetra() '==> NextChar
 end sub
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-บ nextChar - l prขximo caracter da entrada               บ
+บ nextChar - ProximaLetra() l prขximo caracter           บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public sub ProximaLetra()
     locate 5,ContCol
@@ -77,7 +78,7 @@ public sub ProximaLetra()
 end sub
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-บ  error - exibe uma mensagem de erro formatada           บ
+บ  error - Erros(ero) exibe uma mensagem de erro          บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public sub Erros(ero as string)
      print"erro ==> ";ero
@@ -86,7 +87,7 @@ public sub Erros(ero as string)
 end sub
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-บ fatal - exibe uma mensagem de erro formatada e sai      บ
+บ fatal - Fatal(ero) exibe uma mensagem de erro fatal     บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
  public sub Fatal(ero as string) 
      print"erro ==> ";ero
@@ -95,7 +96,7 @@ end sub
  end sub
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-บ expected - alerta sobre alguma entrada esperada         บ
+บ expected - Esperado(x) alerta sobre entrada esperada    บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public sub Esperado(xerro as string)
     locate 6
@@ -106,7 +107,7 @@ public sub Esperado(xerro as string)
 end sub    
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-บ match - verifica se entrada combina com o esperado      บ
+บ match - Combina(C) verifica se entrada combina          บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 Public sub Combina(C as string) 
      if olhar <> C then
@@ -116,9 +117,9 @@ Public sub Combina(C as string)
 end sub
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-บ getName - recebe o nome de um identificador             บ
+บ getName - PegaNome() recebe o nome de um identificador  บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
-public function PegaNome as string 
+public function PegaNome() as string 
     DIM NOME as string
     if  Enumero(olhar) then
         Esperado("Nome")
@@ -216,15 +217,17 @@ PUBLIC SUB Subtrai()
 end sub
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-บ factor - analisa e traduz um fator matem tico           บ
+บ factor - Fator() analisa e traduz um fator matem tico   บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public sub Fator()
    if olhar = "(" then
        combina("(")
        Expressao()
        combina(")")
+   elseif Ealfanum(olhar) then
+       Identifica()                 
    else
-       Emitir("MOV EAX, "& PegaNumero)     
+       Emitir("MOV EAX, "& PegaNumero) 
    end if
 end sub
 /' 
@@ -256,6 +259,22 @@ end sub
 public function Eopadt(c as string) as boolean
     RETURN (c = "+" or c = "-")
 end function
+
+/' 
+ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
+บ ident - Identifica() analisa e traduz um identificador   บ
+ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
+ public sub  Identifica() 
+    dim Nome AS string * 1
+    NOME = PegaNome()
+    if olhar = "(" then
+        combina("(")
+        combina(")")
+        Emitir("CALL "& Nome)
+    ELSE
+        Emitir("MOV EAX, ["& Nome & "]" ) 
+    end if
+ end sub
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
 บ FIM                                                     บ
