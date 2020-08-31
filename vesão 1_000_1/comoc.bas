@@ -15,37 +15,35 @@
 ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 #include  "CabFunc.bi" 
 'ออออออออออออออออออออออออออออออออออออออออออออออออออออออออออ
-#define MAXNAME 30
-#define MAXNUM 5
-'ออออออออออออออออออออออออออออออออออออออออออออออออออออออออออ
 Versao = "v1.000.1"'===> a versao Atual
 /'
 ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
 บ     protขtipos                                           บ
 ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 dim shared Olhar as string * 1 
-dim shared ContCol as integer
-dim shared ContLim as integer
+dim shared ContCod as LongInt = 0
+dim shared Codigo(ContCod) as string
+dim shared ContLin as integer
 'ออออออออออออออออออออออออออออออออออออออออออออออออออออออออออ
-declare sub Inicio()                                 ' init
-declare sub ProximaLetra()                           ' nextChar
-declare sub Erros (x as string)                      ' error
-declare sub Fatal(x as string)                       ' fatal
-declare sub Esperado(x as string)                    ' expected
-declare sub Combina(C as string)                     ' match
-declare function PegaNome()   as string              ' getName
-declare function PegaNumero() as string              ' getNum
-declare sub Emitir(comando as string)                ' emitir
-declare sub Expressao()                              ' expression
-declare sub Termo()                                  ' term
-declare sub Adiciona()                               ' add
-declare sub Subtrai()                                ' subtract
-declare sub Fator()                                  ' factor
-declare sub Multiplica()                             ' multiply
-declare sub Divide()                                 ' divide
-declare function Eopadt(c as string) as boolean      ' isAddOp
-declare sub Identifica()                             ' ident 
-declare sub Atribuir()                               ' assignment
+declare sub Inicio()                              ' init
+declare sub ProximaLetra()                        ' nextChar
+declare sub Erros (x as string)                   ' error
+declare sub Fatal(x as string)                    ' fatal
+declare sub Esperado(x as string)                 ' expected
+declare sub Combina(C as string)                  ' match
+declare function PegaNome() as string             ' getName
+declare function PegaNumero() as string           ' getNum
+declare sub Emitir(comando as string)             ' emitir
+declare sub Expressao()                           ' expression
+declare sub Termo()                               ' term
+declare sub Adiciona()                            ' add
+declare sub Subtrai()                             ' subtract
+declare sub Fator()                               ' factor
+declare sub Multiplica()                          ' multiply
+declare sub Divide()                              ' divide
+declare function Eopadt(c as string) as boolean   ' isAddOp
+declare sub Identifica()                          ' ident 
+declare sub Atribuir()                            ' assignment
 'ออออออออออออออออออออออออออออออออออออออออออออออออออออออออออ
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
@@ -54,10 +52,17 @@ declare sub Atribuir()                               ' assignment
 Function Main as integer    
     cls
     print "**** "& _Compilador &" Versao:";Versao & " ****"
-    Inicio()    '==> Init
+    Inicio()
     Atribuir() 
-    if asc(olhar) <> 13 then
-        Esperado("<enter>")
+    if olhar <> ";" then
+        Esperado(";")
+    else
+        print
+        print
+        for ContLin = 0 to ubound(codigo)
+            locate csrlin , 10
+            print codigo(Contlin)
+        next 
     end if
     return 0
 end function
@@ -67,21 +72,18 @@ end function
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public sub Inicio()
     print
-    print "- Gera codigo assembly - digite A=7*2-(3+1)"
+    print "- Gera codigo assembly - digite A=7*2-(3+1);"
     print
     print "===>";
-    ContLim = 8
-    ContCol = pos
-    ProximaLetra() '==> NextChar
+    ProximaLetra()
 end sub
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
 บ nextChar - ProximaLetra() l prขximo caracter           บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public sub ProximaLetra()
-    locate 5,ContCol
-    olhar   = PegaLetra() '==> look = getchar
-    ContCol = ContCol + 1
+    locate 5
+    olhar = PegaLetra()
 end sub
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
@@ -109,7 +111,6 @@ end sub
 public sub Esperado(algo as string)
     locate 6
     print "=> Esperando ";algo
-     locate  ContLim 
     Pausa
     end
 end sub    
@@ -130,9 +131,9 @@ end sub
 บ                      e retorna o nome                   บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public function PegaNome() as string 
-    
+   
     DIM NOME as string
-    if  Enumero(olhar) then
+    if not Ealfanum(olhar) then
         Esperado("Nome")
     end if
     NOME = UCase(olhar)
@@ -146,12 +147,14 @@ end function
 บ                       e retorna o numero                บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public function PegaNumero() as string 
+   
     DIM  NUMERO as string
     if not Enumero(olhar) then
         Esperado("Inteiro")
     end if
     NUMERO = olhar
     ProximaLetra()
+    
     return NUMERO
 end function
 /' 
@@ -162,9 +165,9 @@ end function
 บ                  provisorio e montar com assembly       บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public sub Emitir(Comando as string) 
-    locate  ContLim
-    print tab(10); comando
-    ContLim =  ContLim + 1
+    Codigo(ContCod) = comando
+    Contcod = ContCod + 1
+    redim preserve codigo(ContCod)
 end sub   
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป

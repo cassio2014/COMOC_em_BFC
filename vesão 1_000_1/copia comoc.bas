@@ -15,6 +15,9 @@
 ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 #include  "CabFunc.bi" 
 'ออออออออออออออออออออออออออออออออออออออออออออออออออออออออออ
+#define MAXNAME 30
+#define MAXNUM 5
+'ออออออออออออออออออออออออออออออออออออออออออออออออออออออออออ
 Versao = "v1.000.1"'===> a versao Atual
 /'
 ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
@@ -24,25 +27,25 @@ dim shared Olhar as string * 1
 dim shared ContCol as integer
 dim shared ContLim as integer
 'ออออออออออออออออออออออออออออออออออออออออออออออออออออออออออ
-declare sub Inicio()                              ' init
-declare sub ProximaLetra()                        ' nextChar
-declare sub Erros (x as string)                   ' error
-declare sub Fatal(x as string)                    ' fatal
-declare sub Esperado(x as string)                 ' expected
-declare sub Combina(C as string)                  ' match
-declare function PegaNome() as string             ' getName
-declare function PegaNumero() as string           ' getNum
-declare sub Emitir(comando as string)             ' emitir
-declare sub Expressao()                           ' expression
-declare sub Termo()                               ' term
-declare sub Adiciona()                            ' add
-declare sub Subtrai()                             ' subtract
-declare sub Fator()                               ' factor
-declare sub Multiplica()                          ' multiply
-declare sub Divide()                              ' divide
-declare function Eopadt(c as string) as boolean   ' isAddOp
-declare sub Identifica()                          ' ident 
-declare sub Atribuir()                            ' assignment
+declare sub Inicio()                                 ' init
+declare sub ProximaLetra()                           ' nextChar
+declare sub Erros (x as string)                      ' error
+declare sub Fatal(x as string)                       ' fatal
+declare sub Esperado(x as string)                    ' expected
+declare sub Combina(C as string)                     ' match
+declare function PegaNome()   as string              ' getName
+declare function PegaNumero() as string              ' getNum
+declare sub Emitir(comando as string)                ' emitir
+declare sub Expressao()                              ' expression
+declare sub Termo()                                  ' term
+declare sub Adiciona()                               ' add
+declare sub Subtrai()                                ' subtract
+declare sub Fator()                                  ' factor
+declare sub Multiplica()                             ' multiply
+declare sub Divide()                                 ' divide
+declare function Eopadt(c as string) as boolean      ' isAddOp
+declare sub Identifica()                             ' ident 
+declare sub Atribuir()                               ' assignment
 'ออออออออออออออออออออออออออออออออออออออออออออออออออออออออออ
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
@@ -64,7 +67,7 @@ end function
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public sub Inicio()
     print
-    print "- Gera codigo assembly - digite 7*2-(3+1)"
+    print "- Gera codigo assembly - digite A=7*2-(3+1)"
     print
     print "===>";
     ContLim = 8
@@ -127,12 +130,14 @@ end sub
 บ                      e retorna o nome                   บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public function PegaNome() as string 
+    
     DIM NOME as string
     if  Enumero(olhar) then
         Esperado("Nome")
     end if
     NOME = UCase(olhar)
     ProximaLetra()
+    
     return NOME
 end function
 /' 
