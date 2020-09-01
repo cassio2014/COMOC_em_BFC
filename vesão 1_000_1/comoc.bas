@@ -49,7 +49,7 @@ declare sub Atribuir()                            ' assignment
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
 บ Main   PROGRAMA PRINCIPAL                               บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
-Function Main as integer    
+Function principal() as integer    
     cls
     print "**** "& _Compilador &" Versao:";Versao & " ****"
     Inicio()
@@ -92,7 +92,7 @@ end sub
 public sub Erros(ero as string)
      print"erro ==> ";ero
      Pausa
-     end
+     end 1
 end sub
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
@@ -101,7 +101,7 @@ end sub
  public sub Fatal(ero as string) 
      print"erro ==> ";ero
      Pausa
-     end
+     end 1
  end sub
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
@@ -112,7 +112,7 @@ public sub Esperado(algo as string)
     locate 6
     print "=> Esperando ";algo
     Pausa
-    end
+    end 1
 end sub    
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป

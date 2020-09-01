@@ -51,7 +51,7 @@ declare sub Atribuir()                               ' assignment
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
 บ Main   PROGRAMA PRINCIPAL                               บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
-Function Main as integer    
+Function principal as integer    
     cls
     print "**** "& _Compilador &" Versao:";Versao & " ****"
     Inicio()    '==> Init
