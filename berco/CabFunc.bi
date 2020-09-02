@@ -18,7 +18,7 @@ dim SHARED AS LCAG   _LC
 บ   Declaraoes estao aqui.                               บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 '==> funoes
-declare Function Main as integer
+declare Function principal as integer
 declare function NomePrograma(Nome as string) as string
 declare function Enumero(Letras as string) as boolean  
 '==> Subrotinas

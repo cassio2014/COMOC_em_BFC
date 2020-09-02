@@ -37,7 +37,7 @@ declare function Eopadt(c as string) as boolean ' isAddOp
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
 บ Main   PROGRAMA PRINCIPAL                               บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
-Function Main as integer    
+Function principal as integer    
     cls
     print "==> Comoc Versao:";Versao
     Inicio()    '==> Init
@@ -64,7 +64,7 @@ end sub
 public sub Erros(ero as string)
      print"erro ==> ";ero
      Pausa
-     end
+     end 1
 end sub
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
@@ -73,7 +73,7 @@ end sub
  public sub Fatal(ero as string) 
      print"erro ==> ";ero
      Pausa
-     end
+     end 1
  end sub
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
@@ -82,7 +82,7 @@ end sub
 public sub Esperado(xerro as string)
     print "Esperado ";xerro
     Pausa
-    end
+    end 1
 end sub    
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป

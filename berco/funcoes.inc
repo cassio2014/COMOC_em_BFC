@@ -4,8 +4,8 @@
 ฬอออออออออออออออออออออออออออออออออออออออออออออออออออออออออน
 บ - Ffunao  ===> NomePrograma()                          บ
 บ                 Le o caminho com o nome do programa     บ
-บ                 e separa o nome e retira a o nome       บ
-บ                 do programa dem o .exe                  บ
+บ                 e separa o nome e retira do nome        บ
+บ                 do programa o ".exe" .                  บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public function NomePrograma(Nome as string) as string
     dim  as string programa,clido
@@ -42,16 +42,22 @@ end function
 บ              le a letra digitada do teclado             บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public function PegaLetra() as string 
+'    dim c  as string * 1
+'    c = chr(getkey)
+'    c = UCase(c)
+'    print c;
+'    return c
+'end function
     dim c  as string * 1
-	dim Rc as string * 1
+	 dim Rc as string * 1
     dim pi as integer  = pos
     dim pf as integer  = pos
     locate csrlin,pos
     while asc(c)  <> 13
         c = chr(getkey)
-		if pi = pf and asc(c) <> 8 then
-			Rc = c 
-		end if
+        if pi = pf and asc(c) <> 8 then
+            Rc = c
+        end if
 		if pf > pi and asc(c) = 8 then
 			locate csrlin, pf - 1
 			print " ";
@@ -60,17 +66,17 @@ public function PegaLetra() as string
 			pf=pos
 		end if
 		if asc(c) <> 8 then
-			print c;
+			print UCase (c);
 			pf = pos
 		end if
-    wend
+   wend
     print
-    return Rc
+    return Rc 
 end function
 /'
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
 บ - Funao ===> Enumero(x as string) as Boolean           บ
-บ               Retirn true se for numeros se nao         บ
+บ               return true se for numeros se nao         บ
 บ               retorna false                             บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public function Enumero(Letras as string) as boolean
@@ -78,12 +84,33 @@ public function Enumero(Letras as string) as boolean
     dim as integer X, Y
     for x = 1 to len(Letras)
         y = asc(Letras,x) 
-        if y >= 48 and y <= 57 then
+        if ( y >= 48 and y <= 57) xor y = 46 then
             VF = true
         else
             VF = false
             exit for
         end if
+    next
+    return VF 
+end function
+/'
+ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
+บ - Funao ===> Ealfa  num(x as string) as Boolean          บ
+บ               return true se for alfanumerico se nao    บ
+บ               retorna false                             บ
+ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
+public function Ealfanum(Caracter as string) as boolean
+    dim VF as boolean = true
+    dim as integer X, Y
+    for x = 1 to len(Caracter)
+        y = asc(Caracter,x) 
+        if y >= 48 and y <= 57 then
+            VF =  false  
+        else
+            VF = true
+            exit for
+        end if
     next 
     return VF 
 end function
+  

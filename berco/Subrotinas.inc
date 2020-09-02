@@ -14,9 +14,11 @@ end sub
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
 บ - SUB ===> Fim()  - rotina de final de programa         บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
-public sub Fim
-    main
+public sub Fim()
+    dim sair as integer
+    sair = principal
     Pausa
+    end sair
 end sub
 
 
