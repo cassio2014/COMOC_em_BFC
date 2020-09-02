@@ -85,7 +85,7 @@ public function Enumero(Letras as string) as boolean
     dim as integer X, Y
     for x = 1 to len(Letras)
         y = asc(Letras,x) 
-        if y >= 48 and y <= 57 then
+        if ( y >= 48 and y <= 57) xor y = 46 then
             VF = true
         else
             VF = false

@@ -136,11 +136,12 @@ end sub
 public function PegaNome() as string 
    
     DIM NOME as string
-    if not Ealfanum(olhar) then
+    if  Ealfanum(olhar) and asc(olhar) = 13 then
         Esperado("Nome")
+    else
+        NOME = UCase(olhar)
+        ProximaLetra()
     end if
-    NOME = UCase(olhar)
-    ProximaLetra()
     return NOME
 end function
 /' 

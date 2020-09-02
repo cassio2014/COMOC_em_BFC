@@ -17,8 +17,8 @@ public function NomePrograma(Nome as string) as string
     programa = Nome
     do
         clido = mid(programa,cont,1)
-        if clido  = "\" or _
-           clido  = "." then
+        if clido         = "\" or _
+           clido         = "." then
            if clido      = "." then
                ponto     = cont - 1
                programa  = left(programa,ponto)
@@ -41,38 +41,39 @@ end function
 บ - Funao ===> PegaLetra() as string                     บ
 บ              le a letra digitada do teclado             บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
-public function PegaLetra() as string 
-'    dim c  as string * 1
-'    c = chr(getkey)
-'    c = UCase(c)
-'    print c;
-'    return c
-'end function
+public function pegaletra() as string 
     dim c  as string * 1
-	 dim Rc as string * 1
-    dim pi as integer  = pos
-    dim pf as integer  = pos
-    locate csrlin,pos
-    while asc(c)  <> 13
-        c = chr(getkey)
-        if pi = pf and asc(c) <> 8 then
-            Rc = c
-        end if
-		if pf > pi and asc(c) = 8 then
-			locate csrlin, pf - 1
-			print " ";
-			pf = pf - 1
-			locate csrlin, pos - 1
-			pf=pos
-		end if
-		if asc(c) <> 8 then
-			print UCase (c);
-			pf = pos
-		end if
-   wend
-    print
-    return Rc 
+    c = chr(getkey)
+    c = UCase(c)
+    print c;
+    return c
 end function
+'    dim c  as string * 1
+'	 dim Rc as string * 1
+'    dim pi as integer  = pos
+'    dim pf as integer  = pos
+'    locate csrlin,pos
+'    while asc(c)  <> 13
+'        c = chr(getkey)
+'        if pi = pf and asc(c) <> 8 then
+'            Rc = c
+'        end if
+'		if pf > pi and asc(c) = 8 then
+'			locate csrlin, pf - 1
+'			print " ";
+'			pf = pf - 1
+'			locate csrlin, pos - 1
+'			pf=pos
+'		end if
+'		if asc(c) <> 8 then
+'			print UCase (c);
+'			pf = pos
+'		end if
+'   wend
+'    print
+'    return Rc 
+'end function
+
 /'
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
 บ - Funao ===> Enumero(x as string) as Boolean           บ
@@ -95,7 +96,7 @@ public function Enumero(Letras as string) as boolean
 end function
 /'
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-บ - Funao ===> Ealfa  num(x as string) as Boolean          บ
+บ - Funao ===> Ealfanum(x as string) as Boolean          บ
 บ               return true se for alfanumerico se nao    บ
 บ               retorna false                             บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/

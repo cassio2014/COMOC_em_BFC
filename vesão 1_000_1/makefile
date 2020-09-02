@@ -11,7 +11,7 @@ comoc:
 
 run:
 	@echo.
-	@$(EXE) -c
+	@$(EXE)
 	
 del:
 	@del $(EXE) 
