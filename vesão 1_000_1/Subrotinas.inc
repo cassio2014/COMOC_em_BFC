@@ -4,21 +4,19 @@
 ฬอออออออออออออออออออออออออออออออออออออออออออออออออออออออออน
 บ - sub ===> pausa - interompe e mopstra uma mensagem     บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
-Public sub Pausa
+Public sub Pausa()
     Print
     Print "Pressione qualquer tecla para continuar. . ..";
     Sleep
-   ' cls
 end sub
 /'
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
 บ - SUB ===> Fim()  - rotina de final de programa         บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
-public sub Fim()
-    dim sair as integer
-    sair = principal
+public sub fim()
+    dim x as integer = principal
     Pausa
-    end sair
+    end x
 end sub
 
 

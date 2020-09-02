@@ -64,7 +64,6 @@ end sub
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public sub ProximaLetra()
     olhar = PegaLetra() '==> look = getchar
-    ?
 end sub
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
@@ -73,7 +72,7 @@ end sub
 public sub Erros(ero as string)
      print"erro ==> ";ero
      Pausa
-     end 1
+     end
 end sub
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
@@ -82,7 +81,7 @@ end sub
  public sub Fatal(ero as string) 
      print"erro ==> ";ero
      Pausa
-     end 1
+     end
  end sub
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
@@ -91,7 +90,7 @@ end sub
 public sub Esperado(xerro as string)
     print "Esperado ";xerro
     Pausa
-    end 1
+    end
 end sub    
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป

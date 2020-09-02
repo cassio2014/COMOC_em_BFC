@@ -10,8 +10,8 @@ type LCAG
     AG02 as string     '2๘ argumentro string com o nome
 end type
 
-dim shared as string Versao 
-dim shared as string _Compilador
+dim shared as string versao 
+dim shared as string _compilador
 dim SHARED AS LCAG   _LC
 /'
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
@@ -23,8 +23,8 @@ declare function NomePrograma(Nome as string) as string
 declare function Enumero(Letras as string) as boolean  
 declare function Ealfanum(Caracter as string) as boolean  
 '==> Subrotinas
-declare sub Pausa 
-declare sub Fim
+declare sub Pausa()
+declare sub Fim()
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
 บ Inicializaao e atribuiao iniciais                     บ

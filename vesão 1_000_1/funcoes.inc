@@ -17,8 +17,8 @@ public function NomePrograma(Nome as string) as string
     programa = Nome
     do
         clido = mid(programa,cont,1)
-        if clido  = "\" or _
-           clido  = "." then
+        if clido         = "\" or _
+           clido         = "." then
            if clido      = "." then
                ponto     = cont - 1
                programa  = left(programa,ponto)
@@ -41,7 +41,7 @@ end function
 บ - Funao ===> PegaLetra() as string                     บ
 บ              le a letra digitada do teclado             บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
-public function PegaLetra() as string 
+public function pegaletra() as string 
     dim c  as string * 1
     c = chr(getkey)
     c = UCase(c)
@@ -73,6 +73,7 @@ end function
 '    print
 '    return Rc 
 'end function
+
 /'
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
 บ - Funao ===> Enumero(x as string) as Boolean           บ
@@ -84,7 +85,7 @@ public function Enumero(Letras as string) as boolean
     dim as integer X, Y
     for x = 1 to len(Letras)
         y = asc(Letras,x) 
-        if ( y >= 48 and y <= 57) xor y = 46 then
+        if y >= 48 and y <= 57 then
             VF = true
         else
             VF = false
@@ -95,7 +96,7 @@ public function Enumero(Letras as string) as boolean
 end function
 /'
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-บ - Funao ===> Ealfa  num(x as string) as Boolean          บ
+บ - Funao ===> Ealfanum(x as string) as Boolean          บ
 บ               return true se for alfanumerico se nao    บ
 บ               retorna false                             บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
