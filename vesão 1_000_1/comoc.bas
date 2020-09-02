@@ -8,7 +8,7 @@
 บ                                                          บ
 บ     versao         : 1.000.1                             บ
 บ     Data Inicio    : 26-07-2020                          บ
-บ     Data Alteraao : 30-08-2020                          บ
+บ     Data Alteraao : 02-09-2020                          บ
 บ     Autor          : Cassio Butrico                      บ
 บ     e-mail         : cassio_butrico@hotmail.com          บ
 บ                                                          บ
@@ -20,6 +20,7 @@ Versao = "v1.000.1"'===> a versao Atual
 ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
 บ     protขtipos                                           บ
 ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
+dim shared erro as integer = 0
 dim shared Olhar as string * 1 
 dim shared ContCod as LongInt = 0
 dim shared Codigo(ContCod) as string
@@ -47,9 +48,10 @@ declare sub Atribuir()                            ' assignment
 'ออออออออออออออออออออออออออออออออออออออออออออออออออออออออออ
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-บ Main   PROGRAMA PRINCIPAL                               บ
+บ ==>    PROGRAMA PRINCIPAL                               บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 Function principal() as integer    
+    
     cls
     print "**** "& _Compilador &" Versao:";Versao & " ****"
     Inicio()
@@ -64,7 +66,7 @@ Function principal() as integer
             print codigo(Contlin)
         next 
     end if
-    return 0
+    return erro
 end function
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
@@ -76,6 +78,7 @@ public sub Inicio()
     print
     print "===>";
     ProximaLetra()
+    
 end sub
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
@@ -83,7 +86,7 @@ end sub
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public sub ProximaLetra()
     locate 5
-    olhar = PegaLetra()
+    olhar = pegaLetra()
 end sub
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
@@ -91,8 +94,8 @@ end sub
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public sub Erros(ero as string)
      print"erro ==> ";ero
-     Pausa
-     end 1
+     PAUSA
+     END -1
 end sub
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
@@ -100,8 +103,8 @@ end sub
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
  public sub Fatal(ero as string) 
      print"erro ==> ";ero
-     Pausa
-     end 1
+     pausa
+     END -1
  end sub
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
@@ -111,8 +114,8 @@ end sub
 public sub Esperado(algo as string)
     locate 6
     print "=> Esperando ";algo
-    Pausa
-    end 1
+    pausa
+    end -1
 end sub    
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
@@ -138,7 +141,6 @@ public function PegaNome() as string
     end if
     NOME = UCase(olhar)
     ProximaLetra()
-    
     return NOME
 end function
 /' 
@@ -154,7 +156,6 @@ public function PegaNumero() as string
     end if
     NUMERO = olhar
     ProximaLetra()
-    
     return NUMERO
 end function
 /' 
@@ -165,9 +166,15 @@ end function
 บ                  provisorio e montar com assembly       บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public sub Emitir(Comando as string) 
-    Codigo(ContCod) = comando
-    Contcod = ContCod + 1
-    redim preserve codigo(ContCod)
+    dim U as integer = ubound(codigo)
+    dim L as integer = Lbound(codigo)
+    if codigo(L) =""  then
+       codigo(L) = comando
+    else
+        redim preserve Codigo(U + 1)
+        U = ubound(codigo)
+        codigo(U) = comando
+    end if
 end sub   
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
