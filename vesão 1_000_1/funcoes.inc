@@ -102,17 +102,19 @@ end function
 บ               retorna false                             บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public function Ealfanum(Caracter as string) as boolean
-    dim VF as boolean
+    
+    dim VF as boolean =  false
     dim as integer X, Y
+
     for x = 1 to len(Caracter)
-        y = asc(Caracter,x) 
-        VF =  false
-        
-        if (y >= 48 and y <= 57 ) xor _
-           (y >= 65 and y <= 90)  xor _
-           (y >= 97 and y <= 122)  then  
-          VF = true 
-        end if
+        y =  asc(mid(Caracter,x,1))     
+        if (y >= 48 and y <= 57) or _
+             (y >= 65 and y <= 90) or _
+             (y >= 97 and y <= 122) then
+            VF = true 
+        else
+            return  false
+        end if  
     next 
     return VF 
 end function
