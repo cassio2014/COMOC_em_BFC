@@ -81,15 +81,16 @@ end function
 บ               retorna false                             บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public function Enumero(Letras as string) as boolean
-    dim VF as boolean = false
+    dim VF as boolean 
     dim as integer X, Y
     for x = 1 to len(Letras)
         y = asc(Letras,x) 
-        if ( y >= 48 and y <= 57) xor y = 46 then
+        
+        if (y >= 48 and y <= 57) xor y = 46 then
             VF = true
         else
             VF = false
-            exit for
+            return VF
         end if
     next
     return VF 
@@ -101,15 +102,16 @@ end function
 บ               retorna false                             บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public function Ealfanum(Caracter as string) as boolean
-    dim VF as boolean = true
+    dim VF as boolean
     dim as integer X, Y
     for x = 1 to len(Caracter)
         y = asc(Caracter,x) 
-        if y >= 48 and y <= 57 then
-            VF =  false  
-        else
-            VF = true
-            exit for
+        VF =  false
+        
+        if (y >= 48 and y <= 57 ) xor _
+           (y >= 65 and y <= 90)  xor _
+           (y >= 97 and y <= 122)  then  
+          VF = true 
         end if
     next 
     return VF 

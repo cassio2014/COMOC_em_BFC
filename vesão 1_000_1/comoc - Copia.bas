@@ -8,58 +8,65 @@
 บ                                                          บ
 บ     versao         : 1.000.1                             บ
 บ     Data Inicio    : 26-07-2020                          บ
-บ     Data Alteraao : 30-08-2020                          บ
+บ     Data Alteraao : 02-09-2020                          บ
 บ     Autor          : Cassio Butrico                      บ
 บ     e-mail         : cassio_butrico@hotmail.com          บ
 บ                                                          บ
 ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 #include  "CabFunc.bi" 
 'ออออออออออออออออออออออออออออออออออออออออออออออออออออออออออ
-#define MAXNAME 30
-#define MAXNUM 5
-'ออออออออออออออออออออออออออออออออออออออออออออออออออออออออออ
 Versao = "v1.000.1"'===> a versao Atual
 /'
 ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
 บ     protขtipos                                           บ
 ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
+dim shared erro as integer = 0
 dim shared Olhar as string * 1 
-dim shared ContCol as integer
-dim shared ContLim as integer
+dim shared ContCod as LongInt = 0
+dim shared Codigo(ContCod) as string
+dim shared ContLin as integer
 'ออออออออออออออออออออออออออออออออออออออออออออออออออออออออออ
-declare sub Inicio()                                 ' init
-declare sub ProximaLetra()                           ' nextChar
-declare sub Erros (x as string)                      ' error
-declare sub Fatal(x as string)                       ' fatal
-declare sub Esperado(x as string)                    ' expected
-declare sub Combina(C as string)                     ' match
-declare function PegaNome()   as string              ' getName
-declare function PegaNumero() as string              ' getNum
-declare sub Emitir(comando as string)                ' emitir
-declare sub Expressao()                              ' expression
-declare sub Termo()                                  ' term
-declare sub Adiciona()                               ' add
-declare sub Subtrai()                                ' subtract
-declare sub Fator()                                  ' factor
-declare sub Multiplica()                             ' multiply
-declare sub Divide()                                 ' divide
-declare function Eopadt(c as string) as boolean      ' isAddOp
-declare sub Identifica()                             ' ident 
-declare sub Atribuir()                               ' assignment
+declare sub Inicio()                              ' init
+declare sub ProximaLetra()                        ' nextChar
+declare sub Erros (x as string)                   ' error
+declare sub Fatal(x as string)                    ' fatal
+declare sub Esperado(x as string)                 ' expected
+declare sub Combina(C as string)                  ' match
+declare function PegaNome() as string             ' getName
+declare function PegaNumero() as string           ' getNum
+declare sub Emitir(comando as string)             ' emitir
+declare sub Expressao()                           ' expression
+declare sub Termo()                               ' term
+declare sub Adiciona()                            ' add
+declare sub Subtrai()                             ' subtract
+declare sub Fator()                               ' factor
+declare sub Multiplica()                          ' multiply
+declare sub Divide()                              ' divide
+declare function Eopadt(c as string) as boolean   ' isAddOp
+declare sub Identifica()                          ' ident 
+declare sub Atribuir()                            ' assignment
 'ออออออออออออออออออออออออออออออออออออออออออออออออออออออออออ
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-บ Main   PROGRAMA PRINCIPAL                               บ
+บ ==>    PROGRAMA PRINCIPAL                               บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
-Function principal as integer    
+Function principal() as integer    
+    
     cls
     print "**** "& _Compilador &" Versao:";Versao & " ****"
-    Inicio()    '==> Init
+    Inicio()
     Atribuir() 
     if asc(olhar) <> 13 then
         Esperado("<enter>")
+    else
+        print
+        print
+        for ContLin = 0 to ubound(codigo)
+            locate csrlin , 10
+            print codigo(Contlin)
+        next 
     end if
-    return 0
+    return erro
 end function
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
@@ -67,21 +74,19 @@ end function
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public sub Inicio()
     print
-    print "- Gera codigo assembly - digite A=7*2-(3+1)"
+    print "==>  Digite: A=7*2-(3+1)"
     print
     print "===>";
-    ContLim = 8
-    ContCol = pos
-    ProximaLetra() '==> NextChar
+    ProximaLetra()
+    
 end sub
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
 บ nextChar - ProximaLetra() l prขximo caracter           บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public sub ProximaLetra()
-    locate 5,ContCol
-    olhar   = PegaLetra() '==> look = getchar
-    ContCol = ContCol + 1
+    locate 5
+    olhar = pegaLetra()
 end sub
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
@@ -89,8 +94,8 @@ end sub
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public sub Erros(ero as string)
      print"erro ==> ";ero
-     Pausa
-     end
+     PAUSA
+     END -1
 end sub
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
@@ -98,8 +103,8 @@ end sub
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
  public sub Fatal(ero as string) 
      print"erro ==> ";ero
-     Pausa
-     end
+     pausa
+     END -1
  end sub
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
@@ -109,9 +114,8 @@ end sub
 public sub Esperado(algo as string)
     locate 6
     print "=> Esperando ";algo
-     locate  ContLim 
-    Pausa
-    end
+    pausa
+    end -1
 end sub    
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
@@ -130,14 +134,14 @@ end sub
 บ                      e retorna o nome                   บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public function PegaNome() as string 
-    
+   
     DIM NOME as string
-    if  Enumero(olhar) then
+    if  Ealfanum(olhar) and asc(olhar) = 13 then
         Esperado("Nome")
+    else
+        NOME = UCase(olhar)
+        ProximaLetra()
     end if
-    NOME = UCase(olhar)
-    ProximaLetra()
-    
     return NOME
 end function
 /' 
@@ -146,6 +150,7 @@ end function
 บ                       e retorna o numero                บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public function PegaNumero() as string 
+   
     DIM  NUMERO as string
     if not Enumero(olhar) then
         Esperado("Inteiro")
@@ -162,9 +167,15 @@ end function
 บ                  provisorio e montar com assembly       บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public sub Emitir(Comando as string) 
-    locate  ContLim
-    print tab(10); comando
-    ContLim =  ContLim + 1
+    dim U as integer = ubound(codigo)
+    dim L as integer = Lbound(codigo)
+    if codigo(L) =""  then
+       codigo(L) = comando
+    else
+        redim preserve Codigo(U + 1)
+        U = ubound(codigo)
+        codigo(U) = comando
+    end if
 end sub   
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
@@ -240,7 +251,7 @@ public sub Fator()
    elseif Ealfanum(olhar) then
        Identifica()                 
    else
-       Emitir("MOV EAX, "& PegaNumero) 
+       Emitir("MOV EAX, "& PegaNumero()) 
    end if
 end sub
 /' 
@@ -279,14 +290,14 @@ end function
 บ ident - Identifica() analisa e traduz um identificador   บ
 ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
  public sub  Identifica() 
-    dim Nome AS string * 1
+    dim NOME AS string * 1
     NOME = PegaNome()
     if olhar = "(" then
         combina("(")
         combina(")")
-        Emitir("CALL "& Nome)
+        Emitir("CALL "& NOME)
     ELSE
-        Emitir("MOV EAX, ["& Nome & "]" ) 
+        Emitir("MOV EAX, ["& NOME & "]" ) 
     end if
  end sub
  /' 

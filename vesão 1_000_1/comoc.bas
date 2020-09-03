@@ -251,7 +251,7 @@ public sub Fator()
    elseif Ealfanum(olhar) then
        Identifica()                 
    else
-       Emitir("MOV EAX, "& PegaNumero) 
+       Emitir("MOV EAX, "& PegaNumero()) 
    end if
 end sub
 /' 
@@ -290,14 +290,14 @@ end function
 บ ident - Identifica() analisa e traduz um identificador   บ
 ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
  public sub  Identifica() 
-    dim Nome AS string * 1
+    dim NOME AS string * 1
     NOME = PegaNome()
     if olhar = "(" then
         combina("(")
         combina(")")
-        Emitir("CALL "& Nome)
+        Emitir("CALL "& NOME)
     ELSE
-        Emitir("MOV EAX, ["& Nome & "]" ) 
+        Emitir("MOV EAX, ["& NOME & "]" ) 
     end if
  end sub
  /' 
