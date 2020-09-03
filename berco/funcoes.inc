@@ -75,22 +75,44 @@ end function
 'end function
 
 /'
+ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
+บ - Funao ===> Ealfa(x as string) as Boolean              บ
+บ               return true se for apenas letras           บ
+บ               se nao retorna false                       บ
+บ               para numeros e simboles                    บ
+ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
+public function Ealfa(Caracter as string) as boolean
+    
+    dim VF as boolean =  false
+    dim as integer X, Y
+    for x = 1 to len(Caracter)
+        y =  asc(mid(Caracter,x,1))     
+        if   (y >= 65 and y <= 90) or _
+             (y >= 97 and y <= 122) then
+           VF = true 
+        else
+            return  false
+        end if  
+    next 
+    return VF 
+end function
+
+/'
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
 บ - Funao ===> Enumero(x as string) as Boolean           บ
 บ               return true se for numeros se nao         บ
 บ               retorna false                             บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
-public function Enumero(Letras as string) as boolean
+public function Enumero(NUMERO as string) as boolean
     dim VF as boolean 
     dim as integer X, Y
-    for x = 1 to len(Letras)
-        y = asc(Letras,x) 
+    for x = 1 to len(NUMERO)
+        y = asc(NUMERO,x) 
         
-        if (y >= 48 and y <= 57) xor y = 46 then
+        if (y >= 48 and y <= 57) or y = 46 then
             VF = true
         else
-            VF = false
-            return VF
+            return false
         end if
     next
     return VF 
@@ -102,17 +124,19 @@ end function
 บ               retorna false                             บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public function Ealfanum(Caracter as string) as boolean
-    dim VF as boolean
+    
+    dim VF as boolean =  false
     dim as integer X, Y
+
     for x = 1 to len(Caracter)
-        y = asc(Caracter,x) 
-        VF =  false
-        
-        if (y >= 48 and y <= 57 ) xor _
-           (y >= 65 and y <= 90)  xor _
-           (y >= 97 and y <= 122)  then  
-          VF = true 
-        end if
+        y =  asc(mid(Caracter,x,1))     
+        if (y >= 48 and y <= 57) or _
+             (y >= 65 and y <= 90) or _
+             (y >= 97 and y <= 122) then
+            VF = true 
+        else
+            return  false
+        end if  
     next 
     return VF 
 end function

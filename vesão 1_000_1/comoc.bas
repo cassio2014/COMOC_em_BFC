@@ -8,7 +8,7 @@
 บ                                                          บ
 บ     versao         : 1.000.1                             บ
 บ     Data Inicio    : 26-07-2020                          บ
-บ     Data Alteraao : 02-09-2020                          บ
+บ     Data Alteraao : 03-09-2020                          บ
 บ     Autor          : Cassio Butrico                      บ
 บ     e-mail         : cassio_butrico@hotmail.com          บ
 บ                                                          บ
@@ -167,8 +167,10 @@ end function
 บ                  provisorio e montar com assembly       บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public sub Emitir(Comando as string) 
+   
     dim U as integer = ubound(codigo)
     dim L as integer = Lbound(codigo)
+    
     if codigo(L) =""  then
        codigo(L) = comando
     else
