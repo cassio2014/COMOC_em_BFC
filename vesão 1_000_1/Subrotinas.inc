@@ -8,6 +8,7 @@ Public sub Pausa()
     Print
     Print "Pressione qualquer tecla para continuar. . ..";
     Sleep
+    print:print
 end sub
 /'
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป

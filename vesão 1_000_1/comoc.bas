@@ -8,7 +8,7 @@
 บ                                                          บ
 บ     versao         : 1.000.1                             บ
 บ     Data Inicio    : 26-07-2020                          บ
-บ     Data Alteraao : 03-09-2020                          บ
+บ     Data Alteraao : 04-09-2020                          บ
 บ     Autor          : Cassio Butrico                      บ
 บ     e-mail         : cassio_butrico@hotmail.com          บ
 บ                                                          บ
@@ -78,7 +78,6 @@ public sub Inicio()
     print
     print "===>";
     ProximaLetra()
-    
 end sub
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
@@ -95,7 +94,7 @@ end sub
 public sub Erros(ero as string)
      print"erro ==> ";ero
      PAUSA
-     END -1
+     END 1
 end sub
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
@@ -104,7 +103,7 @@ end sub
  public sub Fatal(ero as string) 
      print"erro ==> ";ero
      pausa
-     END -1
+     END 1
  end sub
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
@@ -115,7 +114,7 @@ public sub Esperado(algo as string)
     locate 6
     print "=> Esperando ";algo
     pausa
-    end -1
+    end 1
 end sub    
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
@@ -134,14 +133,15 @@ end sub
 บ                      e retorna o nome                   บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public function PegaNome() as string 
-    
-    dim Vnome as string * 1
-    if  enumero(olhar) then  
+   
+    DIM NOME as string
+    if  Ealfanum(olhar) and asc(olhar) = 13 then
         Esperado("Nome")
+    else
+        NOME = UCase(olhar)
+        ProximaLetra()
     end if
-    Vnome = olhar
-    proximaletra()
-    return Vnome
+    return NOME
 end function
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
@@ -150,9 +150,8 @@ end function
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public function PegaNumero() as string 
    
-    DIM  NUMERO as string * 1
-    
-    if  ealfanum(olhar) then
+    DIM  NUMERO as string
+    if not Enumero(olhar) then
         Esperado("Inteiro")
     end if
     NUMERO = olhar
@@ -165,12 +164,11 @@ end function
 บ                  Primeira fase da Montagem              บ
 บ                  futuramente criar um arquivo           บ
 บ                  provisorio e montar com assembly       บ
+บ                  - Povoa tabela Codigo com 0s Comandos  บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public sub Emitir(Comando as string) 
-   
     dim U as integer = ubound(codigo)
     dim L as integer = Lbound(codigo)
-    
     if codigo(L) =""  then
        codigo(L) = comando
     else
@@ -253,7 +251,7 @@ public sub Fator()
    elseif Ealfanum(olhar) then
        Identifica()                 
    else
-       Emitir("MOV EAX, "& PegaNumero()) 
+       Emitir("MOV EAX, "& PegaNumero) 
    end if
 end sub
 /' 
@@ -292,14 +290,14 @@ end function
 บ ident - Identifica() analisa e traduz um identificador   บ
 ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
  public sub  Identifica() 
-    dim NOME AS string * 1
+    dim Nome AS string * 1
     NOME = PegaNome()
     if olhar = "(" then
         combina("(")
         combina(")")
-        Emitir("CALL "& NOME)
+        Emitir("CALL "& Nome)
     ELSE
-        Emitir("MOV EAX, ["& NOME & "]" ) 
+        Emitir("MOV EAX, ["& Nome & "]" ) 
     end if
  end sub
  /' 
@@ -310,6 +308,7 @@ end function
 public sub Atribuir()
      dim Nome as string * 1
      Nome = PegaNome()
+     
      combina("=")
      Expressao()
      Emitir("MOV ["& Nome &"], EAX")

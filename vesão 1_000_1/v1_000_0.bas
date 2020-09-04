@@ -44,7 +44,7 @@ declare function Eopadt(c as string) as boolean   ' isAddOp
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
 บ Main   PROGRAMA PRINCIPAL                               บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
-Function principal as integer    
+Function primcipal as integer    
     cls
     print "==> "& _Compilador &" Versao:";Versao
     Inicio()    '==> Init

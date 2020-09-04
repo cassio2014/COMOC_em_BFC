@@ -5,7 +5,7 @@
 บ - Ffunao  ===> NomePrograma()                          บ
 บ                 Le o caminho com o nome do programa     บ
 บ                 e separa o nome e retira do nome        บ
-บ                 a extenao ".exe"                       บ
+บ                 do programa o ".exe" .                  บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public function NomePrograma(Nome as string) as string
     dim  as string programa,clido
@@ -38,80 +38,32 @@ public function NomePrograma(Nome as string) as string
 end function
 /'
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-บ - Funao ===> PegaLetra() as string varedura do         บ
-บ               Teclado e retorna o Valor da tecla        บ
+บ - Funao ===> PegaLetra() as string                     บ
+บ              le a letra digitada do teclado             บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public function pegaletra() as string 
     dim c  as string * 1
-    c = UCase(chr(getkey))
+    c = chr(getkey)
+    c = UCase(c)
     print c;
     return c
 end function
-
-'    dim c  as string * 1
-'	 dim Rc as string * 1
-'    dim pi as integer  = pos
-'    dim pf as integer  = pos
-'    locate csrlin,pos
-'    while asc(c)  <> 13
-'        c = chr(getkey)
-'        if pi = pf and asc(c) <> 8 then
-'            Rc = c
-'        end if
-'		if pf > pi and asc(c) = 8 then
-'			locate csrlin, pf - 1
-'			print " ";
-'			pf = pf - 1
-'			locate csrlin, pos - 1
-'			pf=pos
-'		end if
-'		if asc(c) <> 8 then
-'			print UCase (c);
-'			pf = pos
-'		end if
-'   wend
-'    print
-'    return Rc 
-'end function
-
-/'
-ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-บ - Funao ===> Ealfa(x as string) as Boolean              บ
-บ               retorna true se for Alfa - letras          บ
-บ               a -> z ou A -> Z                           บ
-บ               se nao retorna false                       บ
-บ               para numeros e simbolos                    บ
-ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
-public function Ealfa(Caracter as string) as boolean
-    dim VF as boolean =  false
-    dim as integer X, Y
-    for x = 1 to len(Caracter)
-        y =  asc(mid(Caracter,x,1))     
-        if (y >= 65 and y <= 90)   or _
-            (y >= 97 and y <= 122) then
-           VF = true 
-        else
-            return  false
-        end if  
-    next 
-    return VF 
-end function
-
 /'
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
 บ - Funao ===> Enumero(x as string) as Boolean           บ
-บ               retorna true se for numeros se nao        บ
+บ               return true se for numeros se nao         บ
 บ               retorna false                             บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
-public function Enumero(NUMERO as string) as boolean
-    dim VF as boolean 
+public function Enumero(Letras as string) as boolean
+    dim VF as boolean = false
     dim as integer X, Y
-    for x = 1 to len(NUMERO)
-        y = asc(NUMERO,x) 
-        if (y >= 48 and y <= 57) or y = 46 then
+    for x = 1 to len(Letras)
+        y = asc(Letras,x) 
+        if y >= 48 and y <= 57 then
             VF = true
         else
-            return false
+            VF = false
+            exit for
         end if
     next
     return VF 
@@ -119,23 +71,20 @@ end function
 /'
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
 บ - Funao ===> Ealfanum(x as string) as Boolean          บ
-บ               retorna true se for alfa numerico se nao  บ
+บ               return true se for alfanumerico se nao    บ
 บ               retorna false                             บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public function Ealfanum(Caracter as string) as boolean
-    
-    dim VF as boolean =  false
+    dim VF as boolean = true
     dim as integer X, Y
-
     for x = 1 to len(Caracter)
-        y =  asc(mid(Caracter,x,1))     
-        if (y >= 48 and y <= 57) or _
-             (y >= 65 and y <= 90) or _
-             (y >= 97 and y <= 122) then
-            VF = true 
+        y = asc(Caracter,x) 
+        if y >= 48 and y <= 57 then
+            VF =  false  
         else
-            return  false
-        end if  
+            VF = true
+            exit for
+        end if
     next 
     return VF 
 end function
