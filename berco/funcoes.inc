@@ -5,7 +5,7 @@
 บ - Ffunao  ===> NomePrograma()                          บ
 บ                 Le o caminho com o nome do programa     บ
 บ                 e separa o nome e retira do nome        บ
-บ                 do programa o ".exe" .                  บ
+บ                 a extenao ".exe"                       บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public function NomePrograma(Nome as string) as string
     dim  as string programa,clido
@@ -38,16 +38,16 @@ public function NomePrograma(Nome as string) as string
 end function
 /'
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-บ - Funao ===> PegaLetra() as string                     บ
-บ              le a letra digitada do teclado             บ
+บ - Funao ===> PegaLetra() as string varedura do         บ
+บ               Teclado e retorna o Valor da tecla        บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public function pegaletra() as string 
     dim c  as string * 1
-    c = chr(getkey)
-    c = UCase(c)
+    c = UCase(chr(getkey))
     print c;
     return c
 end function
+
 '    dim c  as string * 1
 '	 dim Rc as string * 1
 '    dim pi as integer  = pos
@@ -77,18 +77,18 @@ end function
 /'
 ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
 บ - Funao ===> Ealfa(x as string) as Boolean              บ
-บ               return true se for apenas letras           บ
+บ               retorna true se for Alfa - letras          บ
+บ               a -> z ou A -> Z                           บ
 บ               se nao retorna false                       บ
-บ               para numeros e simboles                    บ
+บ               para numeros e simbolos                    บ
 ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public function Ealfa(Caracter as string) as boolean
-    
     dim VF as boolean =  false
     dim as integer X, Y
     for x = 1 to len(Caracter)
         y =  asc(mid(Caracter,x,1))     
-        if   (y >= 65 and y <= 90) or _
-             (y >= 97 and y <= 122) then
+        if (y >= 65 and y <= 90)   or _
+            (y >= 97 and y <= 122) then
            VF = true 
         else
             return  false
@@ -100,7 +100,7 @@ end function
 /'
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
 บ - Funao ===> Enumero(x as string) as Boolean           บ
-บ               return true se for numeros se nao         บ
+บ               retorna true se for numeros se nao        บ
 บ               retorna false                             บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public function Enumero(NUMERO as string) as boolean
@@ -108,7 +108,6 @@ public function Enumero(NUMERO as string) as boolean
     dim as integer X, Y
     for x = 1 to len(NUMERO)
         y = asc(NUMERO,x) 
-        
         if (y >= 48 and y <= 57) or y = 46 then
             VF = true
         else
@@ -120,7 +119,7 @@ end function
 /'
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
 บ - Funao ===> Ealfanum(x as string) as Boolean          บ
-บ               return true se for alfanumerico se nao    บ
+บ               retorna true se for alfa numerico se nao  บ
 บ               retorna false                             บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public function Ealfanum(Caracter as string) as boolean
