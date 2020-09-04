@@ -134,15 +134,14 @@ end sub
 บ                      e retorna o nome                   บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public function PegaNome() as string 
-   
-    DIM NOME as string
-    if  Ealfanum(olhar) and asc(olhar) = 13 then
+    
+    dim Vnome as string * 1
+    if  enumero(olhar) then  
         Esperado("Nome")
-    else
-        NOME = UCase(olhar)
-        ProximaLetra()
     end if
-    return NOME
+    Vnome = olhar
+    proximaletra()
+    return Vnome
 end function
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
@@ -151,8 +150,9 @@ end function
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public function PegaNumero() as string 
    
-    DIM  NUMERO as string
-    if not Enumero(olhar) then
+    DIM  NUMERO as string * 1
+    
+    if  ealfanum(olhar) then
         Esperado("Inteiro")
     end if
     NUMERO = olhar
