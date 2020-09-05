@@ -28,7 +28,6 @@ dim shared ContCod as LongInt = 0
 dim shared Codigo(ContCod) as string
 dim shared ContLin as integer
 dim shared ContCol as integer
-dim shared LDigitada() as integer
 'ออออออออออออออออออออออออออออออออออออออออออออออออออออออออออ
 declare sub Inicio()                              ' init
 declare sub ProximaLetra()                        ' nextChar
@@ -49,7 +48,6 @@ declare sub Divide()                              ' divide
 declare function Eopadt(c as string) as boolean   ' isAddOp
 declare sub Identifica()                          ' ident 
 declare sub Atribuir()                            ' assignment
-declare sub Pulabranco()                          ' skipWhite
 'ออออออออออออออออออออออออออออออออออออออออออออออออออออออออออ
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
@@ -61,17 +59,16 @@ Function principal() as integer
     print "**** "& _Compilador &" Versao:";Versao & " ****"
     Inicio()
     Atribuir() 
-    combina(";")
-    Pulabranco()
-    if asc(olhar) <> 13   then
-        Esperado("Nova Linha, Tecla <enter>")
-    end if    
+    if olhar <> ";" then
+        Esperado(";")
+    else
         print
         print
         for ContLin = 0 to ubound(codigo)
             locate csrlin , 10
             print codigo(Contlin)
         next 
+    end if
     return erro
 end function
 /' 
@@ -84,17 +81,12 @@ public sub Inicio()
     print
     print "===>";
     ProximaLetra()
-    Pulabranco()
 end sub
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
 บ nextChar - ProximaLetra() l prขximo caracter           บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public sub ProximaLetra()
-    if erro = 1 then
-        exit sub
-    end if
-
     locate 5
     olhar = pegaLetra()
 end sub
@@ -103,20 +95,22 @@ end sub
 บ  error - Erros(ero) exibe uma mensagem de erro          บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public sub Erros(ero as string)
-    locate 8 , 10
-    print" Erro ==> ";ero
+    locate 6 , 10
+    print"erro ==> ";ero
+    beep
     PAUSA
-    end 1
+    END 1
 end sub
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
 บ fatal - Fatal(ero) exibe uma mensagem de erro fatal     บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public sub Fatal(ero as string) 
-    locate 8, 10
-    print" Erro ==> ";ero
+    locate 6, 10
+    beep
+    print"erro ==> ";ero
     pausa
-    end 1
+    END 1
 end sub
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
@@ -124,8 +118,9 @@ end sub
 บ                        retorna um aviso                 บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public sub Esperado(algo as string)
-    locate 8 , 10
-    print "==> Esperando ";algo
+    locate 6
+    print "=> Esperando ";algo
+    beep
     pausa
     end 1
 end sub    
@@ -139,7 +134,6 @@ Public sub Combina(C as string)
         Esperado(C)
     end if
     ProximaLetra()
-    Pulabranco()
 end sub
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
@@ -163,7 +157,6 @@ public function PegaNome() as string
         
         ProximaLetra()
     loop until not ealfanum(olhar)
-    Pulabranco()
     return vnome
 end function
 /' 
@@ -172,6 +165,7 @@ end function
 บ                       e retorna o numero                บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public function PegaNumero() as string 
+   
     DIM  NUMERO as string
     
     if not enumero(olhar) then
@@ -185,9 +179,9 @@ public function PegaNumero() as string
         if enumero(olhar) then
             numero = numero & OLHAR
         end if
+        
         ProximaLetra()
     loop until not enumero(olhar)
-    Pulabranco()
     return NUMERO
 end function
 /' 
@@ -252,6 +246,7 @@ public sub Expressao()
                 Esperado("operador")
         end select
     wend
+    
 end sub
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
@@ -279,6 +274,7 @@ end sub
 บ factor - Fator() analisa e traduz um fator matem tico   บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public sub Fator()
+
     if olhar = "(" then
        combina("(")
        Expressao()
@@ -325,6 +321,7 @@ end function
 บ ident - Identifica() analisa e traduz um identificador   บ
 ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
  public sub  Identifica() 
+ 
     dim Nome AS string 
     NOME = PEGANOME()
     if olhar = "(" then
@@ -341,21 +338,13 @@ end function
 บ                            de atribuiao                 บ
 ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public sub Atribuir()
+
      dim Nome as string
      Nome = PegaNome()
      combina("=") 
      Expressao()
-    Emitir("MOV ["& Nome &"], EAX")
+     Emitir("MOV ["& Nome &"], EAX")
  end sub
- /' 
-ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-บ  skipWhite - PulaBranco() -  pula caracteres de espao   บ
-ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
-sub Pulabranco() 
-    while asc(olhar) = 32 or asc(olhar) = 9
-        proximaletra()
-    wend
-end sub
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
 บ FIM                                                     บ
