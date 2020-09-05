@@ -8,12 +8,14 @@
 บ                                                          บ
 บ     versao         : 1.000.1                             บ
 บ     Data Inicio    : 26-07-2020                          บ
-บ     Data Alteraao : 04-09-2020                          บ
+บ     Data Alteraao : 05-09-2020                          บ
 บ     Autor          : Cassio Butrico                      บ
 บ     e-mail         : cassio_butrico@hotmail.com          บ
 บ                                                          บ
 ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 #include  "CabFunc.bi" 
+#define MAXNAME 30
+#define MAXNUM 5
 'ออออออออออออออออออออออออออออออออออออออออออออออออออออออออออ
 Versao = "v1.000.1"'===> a versao Atual
 /'
@@ -25,6 +27,7 @@ dim shared Olhar as string * 1
 dim shared ContCod as LongInt = 0
 dim shared Codigo(ContCod) as string
 dim shared ContLin as integer
+dim shared ContCol as integer
 'ออออออออออออออออออออออออออออออออออออออออออออออออออออออออออ
 declare sub Inicio()                              ' init
 declare sub ProximaLetra()                        ' nextChar
@@ -92,19 +95,23 @@ end sub
 บ  error - Erros(ero) exibe uma mensagem de erro          บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public sub Erros(ero as string)
-     print"erro ==> ";ero
-     PAUSA
-     END 1
+    locate 6 , 10
+    print"erro ==> ";ero
+    beep
+    PAUSA
+    END 1
 end sub
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
 บ fatal - Fatal(ero) exibe uma mensagem de erro fatal     บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
- public sub Fatal(ero as string) 
-     print"erro ==> ";ero
-     pausa
-     END 1
- end sub
+public sub Fatal(ero as string) 
+    locate 6, 10
+    beep
+    print"erro ==> ";ero
+    pausa
+    END 1
+end sub
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
 บ expected - Esperado(x) alerta sobre entrada esperada    บ
@@ -113,6 +120,7 @@ end sub
 public sub Esperado(algo as string)
     locate 6
     print "=> Esperando ";algo
+    beep
     pausa
     end 1
 end sub    
@@ -122,10 +130,10 @@ end sub
 บ                    recebe um caracter para comparar     บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 Public sub Combina(C as string) 
-     if olhar <> C then
-         Esperado(C)
-     end if
-     ProximaLetra()
+    if olhar <> C then
+        Esperado(C)
+    end if
+    ProximaLetra()
 end sub
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
@@ -133,15 +141,25 @@ end sub
 บ                      e retorna o nome                   บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public function PegaNome() as string 
-   
-    DIM NOME as string
-    if  Ealfanum(olhar) and asc(olhar) = 13 then
-        Esperado("Nome")
-    else
-        NOME = UCase(olhar)
-        ProximaLetra()
+    dim vnome as string
+    
+    if not ealfa(olhar) then
+        esperado("nome")
     end if
-    return NOME
+    
+    do
+        if len(vnome) = MAXNAME - 1 then
+            fatal("=>Identicador com Muitas letras")
+        end if
+        
+        if ealfanum(olhar) then
+           vnome =  vnome & olhar
+        end if
+        
+        ProximaLetra()
+        
+    loop until not ealfanum(olhar)
+    return vnome
 end function
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
@@ -151,11 +169,23 @@ end function
 public function PegaNumero() as string 
    
     DIM  NUMERO as string
-    if not Enumero(olhar) then
-        Esperado("Inteiro")
+    
+    if not enumero(olhar) then
+        esperado("Inteiro")
     end if
-    NUMERO = olhar
-    ProximaLetra()
+
+    do
+        if len(NUMERO) = MAXNUM - 1 then
+            fatal("Inteiro Muito Grande")
+        end if
+        
+        if enumero(olhar) then
+            numero = numero & OLHAR
+        end if
+        
+        ProximaLetra()
+        
+    loop until not enumero(olhar)
     return NUMERO
 end function
 /' 
@@ -182,8 +212,8 @@ end sub
 บ term - Termo() a rotina que analisa os termos           บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public sub Termo()
-      Fator()
-      while olhar = "*" or olhar = "/"
+    Fator()
+    while olhar = "*" or olhar = "/"
         Emitir("PUSH EAX") 
         select case olhar
             case "*"
@@ -193,7 +223,7 @@ public sub Termo()
             case else
                 Esperado("operador")
         end select
-      wend
+    wend
 end sub
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
@@ -201,13 +231,16 @@ end sub
 บ                            expressao                    บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/ 
 public sub Expressao()
+
     if Eopadt(olhar) then
         Emitir("XOR EAX, EAX")
     else
         Termo()
     end if
+    
     while Eopadt(olhar)
         Emitir("PUSH EAX") 
+        
         select case olhar
             case "+"
                 Adiciona()
@@ -217,6 +250,7 @@ public sub Expressao()
                 Esperado("operador")
         end select
     wend
+    
 end sub
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
@@ -244,15 +278,16 @@ end sub
 บ factor - Fator() analisa e traduz um fator matem tico   บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public sub Fator()
-   if olhar = "(" then
+
+    if olhar = "(" then
        combina("(")
        Expressao()
        combina(")")
-   elseif Ealfanum(olhar) then
-       Identifica()                 
-   else
-       Emitir("MOV EAX, "& PegaNumero) 
-   end if
+    elseif  Ealfa(olhar) then
+           Identifica()                 
+        else
+           Emitir("MOV EAX, "& PegaNumero) 
+    end if
 end sub
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
@@ -290,8 +325,9 @@ end function
 บ ident - Identifica() analisa e traduz um identificador   บ
 ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
  public sub  Identifica() 
-    dim Nome AS string * 1
-    NOME = PegaNome()
+ 
+    dim Nome AS string 
+    NOME = PEGANOME()
     if olhar = "(" then
         combina("(")
         combina(")")
@@ -306,10 +342,10 @@ end function
 บ                            de atribuiao                 บ
 ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public sub Atribuir()
-     dim Nome as string * 1
+
+     dim Nome as string
      Nome = PegaNome()
-     
-     combina("=")
+     combina("=") 
      Expressao()
      Emitir("MOV ["& Nome &"], EAX")
  end sub
@@ -318,3 +354,7 @@ public sub Atribuir()
 บ FIM                                                     บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 Fim
+
+
+
+

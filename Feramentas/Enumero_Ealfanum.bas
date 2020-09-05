@@ -1,52 +1,42 @@
-/'caracteres em OEM
-ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-บ  Arquivo: Funoes.inc  Funoes para o compilador        บ
-ฬอออออออออออออออออออออออออออออออออออออออออออออออออออออออออน
-บ - Ffunao  ===> NomePrograma()                          บ
-บ                 Le o caminho com o nome do programa     บ
-บ                 e separa o nome e retira do nome        บ
-บ                 do programa o ".exe" .                  บ
-ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
-public function NomePrograma(Nome as string) as string
-    dim  as string programa,clido
-    dim  as integer i, cont, ponto
-    dim  as boolean sim, achou
-    sim      = true
-    achou    = false
-    cont     = len(Nome)
-    programa = Nome
-    do
-        clido = mid(programa,cont,1)
-        if clido         = "\" or _
-           clido         = "." then
-           if clido      = "." then
-               ponto     = cont - 1
-               programa  = left(programa,ponto)
-               cont      = len(programa)
-           end if   
-           if clido      = "\" then
-              achou      = sim ' sai do loop
-              programa   = mid(programa,cont + 1)
-           end if
-        end if
-        cont -= 1
-        if cont <= 0 then 
-            achou = sim ' sai dso loop
-        end if
-    loop until achou = sim
-    return programa
-end function
-/'
-ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-บ - Funao ===> PegaLetra() as string                     บ
-บ              le a letra digitada do teclado             บ
-ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
-public function pegaletra() as string 
-    dim c  as string * 1
-    c = UCase(chr(getkey))
-    print c;
-    return c
-end function
+declare function Enumero(Letras as string) as boolean
+declare function Ealfanum(Caracter as string) as boolean
+declare function Ealfa(Caracter as string) as boolean
+
+dim C(1 to 6) as string
+dim x as byte
+
+
+c(1) = "1516"
+c(2) = "18d44e"
+c(3) = "bola"
+c(4) = "45.57"
+c(5) = "9,15"
+c(6) = "-+=,.*/"
+
+cls
+    print "ออออออออออออออออออออออออออออออออออออออออออออออออ"
+
+for x = 1 to ubound(c)
+    
+    print "==> ";str(x);"๘ = ";c(x)
+    if Enumero(c(x)) then
+        print "==> sim, o valor  numerico..... = ";c(x)
+    end if
+    
+    if ealfa(c(x)) then
+        print "==> sim, o valor  alfa......... = ";chr(34) ;c(x);chr(34)
+    end if
+    
+    if Ealfanum(c(x)) then
+        print "==> sim, o valor  alfa numerico = ";chr(34) ;c(x);chr(34)
+    end if
+    print "ออออออออออออออออออออออออออออออออออออออออออออออออ"
+next x
+print
+print "Tecle ango para sair....";
+sleep
+end
+
 /'
 ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
 บ - Funao ===> Ealfa(x as string) as Boolean              บ
@@ -81,7 +71,7 @@ public function Enumero(NUMERO as string) as boolean
     dim as integer X, Y
     for x = 1 to len(NUMERO)
         y = asc(NUMERO,x) 
-        if (y >= 48 and y <= 57) then ' or y = 44 or y = 46 then
+        if (y >= 48 and y <= 57) or y = 44 or y = 46 then
             VF = true
         else
             return false
@@ -113,3 +103,4 @@ public function Ealfanum(Caracter as string) as boolean
     return VF 
 end function
   
+

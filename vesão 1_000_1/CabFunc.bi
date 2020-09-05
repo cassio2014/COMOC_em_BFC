@@ -21,7 +21,8 @@ dim SHARED AS LCAG   _LC
 declare Function principal() as integer
 declare function NomePrograma(Nome as string) as string
 declare function Enumero(Letras as string) as boolean  
-declare function Ealfanum(Caracter as string) as boolean  
+declare function Ealfanum(Caracter as string) as boolean 
+declare function Ealfa(Caracter as string) as boolean
 '==> Subrotinas
 declare sub Pausa()
 declare sub Fim()
@@ -36,8 +37,6 @@ _Compilador = NomePrograma(command(0))
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 #include "funcoes.inc"
 #include "Subrotinas.inc"
-
-
 
 
 

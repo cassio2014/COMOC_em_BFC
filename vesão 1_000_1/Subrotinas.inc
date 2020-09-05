@@ -15,9 +15,7 @@ end sub
 บ - SUB ===> Fim()  - rotina de final de programa         บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public sub fim()
-    dim x as integer = principal
+    dim x as integer = principal()
     Pausa
     end x
 end sub
-
-
