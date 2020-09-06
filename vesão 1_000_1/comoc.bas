@@ -79,9 +79,9 @@ end function
 บ init - Inicio() inicializaao do compilador             บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public sub Inicio()
-    print
-    print "- Gera codigo assembly - digite A=7*2-(3+1);"
-    print
+    print 
+    print "- Gera codigo assembly - digite: TOAL = 7 * 2 -(3 + 1);"
+    print 
     print "===>";
     ProximaLetra()
     Pulabranco()
