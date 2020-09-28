@@ -61,7 +61,7 @@ Function principal() as integer
     print "**** "& _Compilador &" Versao:";Versao & " ****"
     Inicio()
     Atribuir() 
-    combina(";")
+   ' combina(";")
     Pulabranco()
     if asc(olhar) <> 13   then
         Esperado("Nova Linha, Tecla <enter>")
