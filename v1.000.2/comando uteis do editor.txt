@@ -1,0 +1,44 @@
+O editor e o compilador FreeBasic esta na pasta 
+Ferramentas
+
+<tab> =  a tecla tab 
+
+Select Case            - digite scc<tab>
+Comando do until       - digite dodo<tab>
+comando IF             - digite ifif<tab>
+Comentario Simples     - digite cs<tb>
+Cabe็alho para Fun็๕es - digite cf<tab>
+Titulo Primcipal       - digite tg<tab>
+data de atualiza็ใo    - digite datu<bat>
+
+
+/'caracteres em OEM
+ษอออออออออออออออออออออออออออออออออออออออออออออออออออออป
+บ                                                     บ
+บ - Ffunao  ===>    บ
+บ                                                     บ
+บ                                                     บ
+ศอออออออออออออออออออออออออออออออออออออออออออออออออออออผ '/
+
+/'  caracteres em OEM
+ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
+บ                                                          บ
+บ  Projeto:comoc.exe                                       บ
+บ                                                          บ
+บ  Compilador simples                                      บ
+บ  Na Linguagem freeBasic                                  บ
+บ                                                          บ
+บ     versao         : 1.000.00                            บ
+บ     Data Inicio    : 26-07-2020                          บ
+บ     Data Alteraao : {CURRENT_DAY}-{CURRENT_MONTH}-{CURRENT_YEAR}                          บ
+บ     Autor          : Cassio Butrico                      บ
+บ     e-mail         : cassio_butrico@hotmail.com          บ
+บ                                                          บ
+ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
+
+
+บ     Data Alteraao : {CURRENT_DAY}-{CURRENT_MONTH}-{CURRENT_YEAR}                          บ
+
+if <val>  <esp> <val> then
+	{CURSOR_POSITION}
+end if
