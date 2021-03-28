@@ -8,7 +8,7 @@
 º                                                          º
 º     versao         : 1.000.1                             º
 º     Data Inicio    : 26-07-2020                          º
-º     Data Altera‡ao : 23-03-2021                          º
+º     Data Altera‡ao : 26-03-2021                          º
 º     Autor          : Cassio Butrico                      º
 º     e-mail         : cassio_butrico@hotmail.com          º
 º                                                          º
