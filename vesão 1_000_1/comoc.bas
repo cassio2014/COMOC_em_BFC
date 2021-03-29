@@ -8,7 +8,7 @@
 บ                                                          บ
 บ     versao         : 1.000.1                             บ
 บ     Data Inicio    : 26-07-2020                          บ
-บ     Data Alteraao : 27-12-2020                          บ
+บ     Data Alteraao : 29-03-2021                          บ
 บ     Autor          : Cassio Butrico                      บ
 บ     e-mail         : cassio_butrico@hotmail.com          บ
 บ                                                          บ
@@ -80,7 +80,7 @@ end function
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public sub Inicio()
     print 
-    print "- Gera codigo assembly - digite: TOAL = 7 * 2 -(3 + 1);"
+    print "- Gera codigo assembly - digite: TOAL = 7 * 2 -(3 + 1)"
     print 
     print "===>";
     ProximaLetra()
