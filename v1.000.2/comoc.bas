@@ -8,7 +8,7 @@
 º                                                          º
 º     versao         : 1.000.1                             º
 º     Data Inicio    : 26-07-2020                          º
-º     Data Altera‡ao : 03-04-2022                          º
+º     Data Altera‡ao : 09-05-2022                          º
 º     Autor          : Cassio Butrico                      º
 º     e-mail         : cassio_butrico@hotmail.com          º
 º                                                          º
@@ -92,7 +92,7 @@ public sub compilar()
             print #FN, "   "+ codigo(x)
         next 
         print #FN, "End Asm"
-        print #FN, "print "+ chr(34) +">"+ Latual(2) +" = "+ chr(34)+" ;"+ Latual(1)
+        print #FN, "print "+ chr(34) +">"+ Latual(1) +" = "+ chr(34)+" ;"+ Latual(1)
         PRINT #FN, "PRINT" 
         PRINT #FN, "PRINT "+ chr(34) +"Pressione qualquer tecla para continuar. . ."+ chr(34)+" ;"
         print #FN, "SLEEP"
