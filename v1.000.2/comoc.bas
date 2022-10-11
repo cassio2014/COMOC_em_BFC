@@ -8,7 +8,7 @@
 บ                                                          บ
 บ     versao         : 1.000.1                             บ
 บ     Data Inicio    : 26-07-2020                          บ
-บ     Data Alteraao : 20-09-2022                          บ
+บ     Data Alteraao : 11-10-2022                          บ
 บ     Autor          : Cassio Butrico                      บ
 บ     e-mail         : cassio_butrico@hotmail.com          บ
 บ                                                          บ
@@ -77,81 +77,6 @@ Function principal() as integer
 end function
 /' 
 ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-บ  Criarquivo() - Subrotina para criaao dos arquivos      บ
-บ                de entrade e saida                        บ
-ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
-Public sub criarquivo()
-    resultado = 0
-    if FileExists ("E_"+ _Compilador +".exe") then
-        resultado = shell("del E_"+ _Compilador +".exe")
-    end if
-    
-    if FileExists ("A_"+ _Compilador +".bas") then
-        resultado = shell("del A_"+ _Compilador +".bas")
-    end if
-    
-    if resultado <> 0 then
-        print
-        fatal( "erro ao deletar "+ "E_" + _Compilador)
-    end if
-    
-    apoio     = "R_" + _Compilador + ".res"
-    FNOME     = "A_" + _Compilador + ".bas"
-end sub
-/' 
-ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-บ init - Inicio() inicializaao do compilador              บ
-ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
-public sub Inicio()
-    print
-    print "Gera Executavel ex: VALOR = 7 * 2 - (3 + 1);"
-    print
-    line input ">", Ldigitada ' string de uma linha
-    ProximaLetra()
-    Pulabranco()
-end sub
- /' 
-ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-บ  assignment - Atribuir() - analisa e traduz um comando   บ
-บ                            de atribuiao                 บ
-ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
-public sub Atribuir()
-     dim Nome as string
-     Nome = PegaNome()
-     combina("=") 
-     Expressao()
-    Emitir("MOV ["& Nome &"], EAX")
-    Latual(1) = nome
- end sub
-/' 
-ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-บ match - Combina(C) verifica se a entrada combina        บ
-บ                    recebe um caracter para comparar     บ
-ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
-Public sub Combina(C as string) 
-    if olhar <> C then
-        Esperado(C)
-    end if
-    if c <> ";" then
-        Latual(2) = Latual(2) + c + " "
-    end if
-    ProximaLetra()
-    Pulabranco()
-    if c = "=" then
-        Latual(2) = ""
-    end if
-end sub
- /' 
-ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-บ  skipWhite - PulaBranco() -  pula caracteres de espao   บ
-ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
-sub Pulabranco() 
-    while asc(olhar) = 32 or asc(olhar) = 9
-        proximaletra()
-    wend
-end sub
-/' 
-ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
 บ  cria o arquivo ACOMOCA.BAS Para compilaao              บ                                                   บ
 ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public sub compilar()
@@ -191,6 +116,18 @@ public sub compilar()
 end sub
 /' 
 ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
+บ init - Inicio() inicializaao do compilador              บ
+ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
+public sub Inicio()
+    print
+    print "Gera Executavel ex: VALOR = 7 * 2 - (3 + 1);"
+    print
+    line input ">", Ldigitada ' string de uma linha
+    ProximaLetra()
+    Pulabranco()
+end sub
+/' 
+ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
 บ nextChar - ProximaLetra() l prขximo caracter            บ
 ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
 public sub ProximaLetra()
@@ -227,6 +164,24 @@ public sub Esperado(algo as string)
     pausa
     end 1
 end sub    
+/' 
+ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
+บ match - Combina(C) verifica se a entrada combina        บ
+บ                    recebe um caracter para comparar     บ
+ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
+Public sub Combina(C as string) 
+    if olhar <> C then
+        Esperado(C)
+    end if
+    if c <> ";" then
+        Latual(2) = Latual(2) + c + " "
+    end if
+    ProximaLetra()
+    Pulabranco()
+    if c = "=" then
+        Latual(2) = ""
+    end if
+end sub
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
 บ getName - PegaNome() recebe o nome de um identificador  บ
@@ -423,6 +378,51 @@ end function
         Emitir("MOV EAX, ["& Nome & "]" ) 
     end if
  end sub
+ /' 
+ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
+บ  assignment - Atribuir() - analisa e traduz um comando   บ
+บ                            de atribuiao                 บ
+ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
+public sub Atribuir()
+     dim Nome as string
+     Nome = PegaNome()
+     combina("=") 
+     Expressao()
+    Emitir("MOV ["& Nome &"], EAX")
+    Latual(1) = nome
+ end sub
+ /' 
+ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
+บ  skipWhite - PulaBranco() -  pula caracteres de espao   บ
+ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
+sub Pulabranco() 
+    while asc(olhar) = 32 or asc(olhar) = 9
+        proximaletra()
+    wend
+end sub
+/' 
+ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
+บ  Criarquivo() - Subrotina para criaao dos arquivos      บ
+บ                de entrade e saida                        บ
+ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
+Public sub criarquivo()
+    resultado = 0
+    if FileExists ("E_"+ _Compilador +".exe") then
+        resultado = shell("del E_"+ _Compilador +".exe")
+    end if
+    
+    if FileExists ("A_"+ _Compilador +".bas") then
+        resultado = shell("del A_"+ _Compilador +".bas")
+    end if
+    
+    if resultado <> 0 then
+        print
+        fatal( "erro ao deletar "+ "E_" + _Compilador)
+    end if
+    
+    apoio     = "R_" + _Compilador + ".res"
+    FNOME     = "A_" + _Compilador + ".bas"
+end sub
 /' 
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
 บ FIM                                                     บ

@@ -1,6 +1,6 @@
 /'caracteres em OEM
 ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-บ Arquivo: CabFunc.bi   cabealho de funoes              บ
+บ Arquivo: CadFiv.bi   cabealho de funoes               บ
 ฬอออออออออออออออออออออออออออออออออออออออออออออออออออออออออน
 บ Variaveis, funoes e rotinas                            บ
 ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
