@@ -1,12 +1,12 @@
-/'caracteres em OEM
-ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-บ  Arquivo: Funoes.inc  Funoes para o compilador        บ
-ฬอออออออออออออออออออออออออออออออออออออออออออออออออออออออออน
-บ - Ffunao  ===> NomePrograma()                          บ
-บ                 Le o caminho com o nome do programa     บ
-บ                 e separa o nome e retira do nome        บ
-บ                 do programa o ".exe" .                  บ
-ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
+๏ปฟ/'caracteres em OEM
+โ•”โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•—
+โ•‘  Arquivo: Funรงoes.inc  Funรงoes para o compilador        โ•‘
+โ• โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•ฃ
+โ•‘ - Ffunรงao  ===> NomePrograma()                          โ•‘
+โ•‘                 Le o caminho com o nome do programa     โ•‘
+โ•‘                 e separa o nome e retira do nome        โ•‘
+โ•‘                 do programa o ".exe" .                  โ•‘
+โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•'/
 public function NomePrograma(Nome as string) as string
     dim  as string programa,clido
     dim  as integer i, cont, ponto
@@ -37,10 +37,10 @@ public function NomePrograma(Nome as string) as string
     return programa
 end function
 /'
-ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-บ - Funao ===> PegaLetra() as string                     บ
-บ              le a letra digitada do teclado             บ
-ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
+โ•”โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•—
+โ•‘ - Funรงao ===> PegaLetra() as string                     โ•‘
+โ•‘              le a letra digitada do teclado             โ•‘
+โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•'/
 public function pegaletra() as string 
     
     dim c  as string * 1
@@ -49,13 +49,13 @@ public function pegaletra() as string
     return c
 end function
 /'
-ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-บ - Funao ===> Ealfa(x as string) as Boolean              บ
-บ               retorna true se for Alfa - letras          บ
-บ               a -> z ou A -> Z                           บ
-บ               se nao retorna false                       บ
-บ               para numeros e simbolos                    บ
-ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
+โ•”โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•—
+โ•‘ - Funรงao ===> Ealfa(x as string) as Boolean              โ•‘
+โ•‘               retorna true se for Alfa - letras          โ•‘
+โ•‘               a -> z ou A -> Z                           โ•‘
+โ•‘               se nao retorna false                       โ•‘
+โ•‘               para numeros e simbolos                    โ•‘
+โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•'/
 public function Ealfa(Caracter as string) as boolean
     dim VF as boolean =  false
     dim as integer X, Y
@@ -72,11 +72,11 @@ public function Ealfa(Caracter as string) as boolean
 end function
 
 /'
-ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-บ - Funao ===> Enumero(x as string) as Boolean           บ
-บ               retorna true se for numeros se nao        บ
-บ               retorna false                             บ
-ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
+โ•”โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•—
+โ•‘ - Funรงao ===> Enumero(x as string) as Boolean           โ•‘
+โ•‘               retorna true se for numeros se nao        โ•‘
+โ•‘               retorna false                             โ•‘
+โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•'/
 public function Enumero(NUMERO as string) as boolean
     dim VF as boolean 
     dim as integer X, Y
@@ -91,11 +91,11 @@ public function Enumero(NUMERO as string) as boolean
     return VF 
 end function
 /'
-ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-บ - Funao ===> Ealfanum(x as string) as Boolean          บ
-บ               retorna true se for alfa numerico se nao  บ
-บ               retorna false                             บ
-ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ'/
+โ•”โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•—
+โ•‘ - Funรงao ===> Ealfanum(x as string) as Boolean          โ•‘
+โ•‘               retorna true se for alfa numerico se nao  โ•‘
+โ•‘               retorna false                             โ•‘
+โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•โ•'/
 public function Ealfanum(Caracter as string) as boolean
     
     dim VF as boolean =  false
