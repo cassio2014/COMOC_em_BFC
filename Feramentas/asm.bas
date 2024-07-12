@@ -2,7 +2,7 @@
 dim A as integer = 0
 print
     Asm
-        mov  EAX, 7
+      mov  EAX, 7
 		push EAX 
 		mov  EAX, 2 
 		pop  EBX   
